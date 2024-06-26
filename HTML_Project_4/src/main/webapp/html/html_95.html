@@ -55,6 +55,38 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h1>로그인</h1>
+	<form action="input.html">					<!-- form : 전체 적용사항. input.html로 이동 -->					
+	<table width="350">
+		<!-- 
+			<input type="text"
+				속성 -> required(필수 요구), readonly(읽기전용), placeholder(백그라운드 출력) 
+	-->
+		<tr>
+			<th witdh="30%">ID</th>
+			<td width="70%">
+				<input type="text" size="15" required placeholder="로그인">				
+			</td>
+		</tr>
+		<tr>
+			<th witdh="30%">PASSWORD</th>
+			<td width="70%">
+				<input type="text" size="15" required placeholder="패스워드">
+			</td>
+		</tr>
+		<tr>
+			<th witdh="30%">읽기 전용</th>
+			<td width="70%">
+				<input type="text" size="15" readonly placeholder="읽기 전용">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="로그인">
+				<input type="button" value="취소">
+			</td>
+		</tr>
+	</table>
+	</form>
 </body>
 </html>

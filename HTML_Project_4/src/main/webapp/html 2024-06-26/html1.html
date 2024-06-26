@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>회원가입</h1>
+	<hr>
+	<table width="550">
+		<tr>
+			<th width="15%" align="right">ID</th>
+			<td width="85%">
+				<input type="text" size="20" required>
+				<button>중복체크</button>
+			</td>
+		</tr>
+		<tr>
+			<th width="15%" align="right">비밀번호</th>
+			<td width="85%">
+				<input type="text" size="20" required>
+				<input type="text" size="20" required  placeholder="재입력">
+			</td>
+		</tr>
+		<tr>
+			<th width="15%" align="right">이름</th>
+			<td width="85%">
+				<input type="text" size="20" required>
+			</td>
+		</tr>
+		<tr>
+			<th width="15%" align="right">성별</th>
+			<td width="85%" align="center">
+				<input type="radio" name="sex" checked>남자
+				<input type="radio" name="sex">여자
+			</td>
+		</tr>
+		<tr>
+			<th width="15%" align="right">생년월일</th>
+			<td width="85%">
+				<input type="date" size="15">	
+			</td>
+		</tr>
+		<tr>
+			<th width="15%" align="right">이메일</th>
+			<td width="85%">
+				<input type="text" size="60" required>
+			</td>
+		</tr>
+		<tr>
+		<th width="15%" align="right">우편번호</th>
+		<td width="85%">
+			<input type="text" size="17" required>
+			<input type="button" size="15" value="우편번호 검색">
+		</td>
+		</tr>
+		<tr>
+		<th width="15%" align="right">주소</th>
+		<td width="85%">
+			<input type="text" size="60" required>
+		</td>
+		</tr>
+		<tr>
+		<th width="15%" align="right">상세주소</th>
+		<td width="85%">
+			<input type="text" size="60" required>
+		</td>
+		</tr>
+				<tr>
+			<th width="30%">전화</th>
+			<td width="70%">
+				<select>
+					<option>010</option>
+					<option>011</option>
+					<option>016</option>
+					<option>017</option>
+					<option>018</option>
+					<option>019</option>
+				</select>
+					<input type="text" size="13">
+			</td>
+		</tr>
+		<tr>
+		<th width="15%" align="right">소개</th>
+		<td width="85%">
+			<textarea rows="10" cols="60"></textarea>
+		</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="회원가입">
+				<input type="button" value="취소">
+			</td>
+		</tr>
+<!-- 
+		<tr>
+		<th width="15%" align="right">이름</th>
+		<td width="85%">
+			<input type="text" size="20" required>
+		</td>
+		</tr>
+-->
+	</table>
+</body>
+</html>
