@@ -1,0 +1,90 @@
+<!-- 
+HTML(브라우저에서 실행되는 언어) : 브라우저는 ML(MarkUP Language : <태그명 속성명=값>으로 구성)만 사용가능
+	HTML : 태그와 속성이 정해져있다(정적 페이지)
+	 -> 화면 UI
+	XML : 태그와 속성이 사용자 정의(태그와 속성을 직접 제작. 확장된 ML)
+	 -> 문서저장, 환경설정
+	JDBC(오라클(데이터베이스) 연결), parsing(데이터를 추출 : HTML/XML/JSON 크롤링)
+	
+	1. HTML의 특징 : 정적페이지(태그가 고정 = 표준화되어있음), 제작이 되어있는 상태(속성/태그가 정의되어있음)
+	 -> 태그 형식
+		여는태그( <태그> ) / 닫는태그( </태그> ) -> <태그>출력내용</태그>
+		독립태그( <태그/> )	->	<태그 속성="데이터 출력 위치"/>
+		생략 가능한 태그 (<br>, <p>, <input>, <img>)
+	 -> 태그의 종류
+	 	문자 출력
+	 		<b> : bold, <strong> : 강조체
+			<h1>~<h6> : h1,h3은 제목설정에 유용
+			**한줄문자열		줄바꿈 : 한줄내리기( <br> ), 두줄, 단락 ( <p> )
+			<sup> : 위첨자
+	 	목록 출력
+	 		<ul> - <li>: 순서가 없는 목록(주로 메뉴출력)
+			<dl> - <dt>, <dd>	: 상세보기 - 소제목, 설명
+			<table> : 목록 출룩
+			 - <tr> -<td>, <th>
+			**<a> : 화면이동( <a herf="URL 주소")
+	 	화면 분할
+	 		<div> : 전체 화면 분할
+			<span> : 부분적인 CSS적용, 부메뉴, 퀵메뉴
+	 	멀티미디어
+	 	 속성 : src=""
+	 		<img src="이미지파일"> : 이미지 출력(jpg, gif, png만 가능)
+	 		<embed src="동영상">, <iframe> : 동영살 출력(iframe은 react,vue에서 사용. include(HTML파일 특정부분에 다른 HTML을 추가 가능))
+			<video>, <audio> : 지정된 파일만 사용
+		사용자 입력
+			<input>
+				type="text" : 한줄입력
+				type="password" : 비밀번호
+				type="file" : 파일 선택
+				type="color" : 색 선택창
+				type="date" : 달력 선택창
+				type="hidden" : 화면에 보이지 않는 데이터 출력
+				type="radio" : 라디오버튼(name속성으로 그룹설정을 해 한개만 선택)
+				type="checkbox" : 체크박스(여러개를 동시에 선택)
+				type="range" : 슬라이더(반드시 max, min 설정)
+				type="number" : 스피너. 숫자선택(반드시 max, min 설정)
+				type="button" : 버튼. Java로 제어.
+				type="submit" : 서버로 데이터를 전송(반드시 <form>동반)
+					-> <form> : method(전송방식 지정 : GET(URL뒤에 데이터를 첨부해 사용. ?id뒤에 붙음. 데이터 노출됨), POST(내부네트워크. 데이터 노출 안됨)), action(전송할 파일 지정)
+			**자바는 메소드의 매개변수를 이용해 데이터 전송. HTML,JSP는 메소드가 없어 URL로 데이터 전송
+											-> URL : 서버정보(http:)/사용자 요청정보(URI). 공백 사용 불가
+			<select> : 한개만 선택,		<select multiple> : 여러개 선택
+				- <option> : 데이터 저장
+			<textarea> : 여러줄 입력. 반드시 공백없이 코딩(<textarea></textarea>)
+				-width(cols), height(rows)
+		기타
+		<fileset>, <label> : 입력창을 모아서 처리(table대체)
+		<legend> : border구분(table대체)
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<h1 id="a"></h1>
+	<center>
+		<table border="1" bordercolor="black" width="800" height="600">
+			<tr>
+				<td colspan="2" height="100"><iframe src="header.html" width="800"></iframe></td>
+			</tr>
+			<tr>
+				<td colspan="2" height="80"><iframe src="nav.html" width="800"></iframe></td>
+			</tr>
+			<tr>
+				<td width="200" height="320"><iframe src="aside.html" width="200", height="320"></iframe></td>
+				<td width="600" height="320"><iframe src="section.html" width="600", height="320"></iframe></td>
+			</tr>
+			<tr>
+				<td colspan="2" height="100"><iframe src="footer.html" width="800"></iframe></td>
+			</tr>
+		</table>
+	</center>
+</body>	
+</html>
