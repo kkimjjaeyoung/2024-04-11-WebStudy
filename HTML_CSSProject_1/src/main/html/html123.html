@@ -1,0 +1,51 @@
+<!-- 
+1. CSS : 화면 UI(디자인)
+	1) Selector(선택자)
+		태그를 선택(태그 속성 이용)
+		CSS - 태그선택 
+			태그명 { 속성:값; }			/* 여러개 사용 시 속성:값;, 속성:값; */
+	CSS사용
+	 1) 내부 CSS : 파일 1개에 대한 적용
+	 	<head>
+			<style>
+				 CSS구현
+			</style>
+		</head>
+	 2) 외부 CSS : 여러 파일에 공통으로 사용되는 CSS를 파일로 제작(.CSS : 파일 제작)
+	 	<head>
+		<link rel="stylesheet" herf="파일명"|URL>
+		</head>
+	 3) 인라인 CSS : 태그 1개에 대한 CSS적용
+	 	<img src="" sytle="">
+	 **모든 HTML은 style속성을 가진다
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1{color: blue;}
+</style>
+</head>
+<body>
+	<h1 style="color: blue;">Hello HTML</h1>
+	<h1 style="color: blue;">Hello HTML</h1>
+	<h1 style="color: blue;">Hello HTML</h1>
+	<h1 style="color: blue;">Hello HTML</h1>
+	<h1 style="color: blue;">Hello HTML</h1>
+	
+	<h1>Hello HTML</h>
+	<h1>Hello HTML</h1>
+	<h1>Hello HTML</h1>
+	<h1>Hello HTML</h1>
+	<h1>Hello HTML</h1>
+	
+	<h1 style="color: blue;">Hello HTML</h1>
+	<h1 style="color: blue;">Hello HTML</h1>
+	<h1 style="color: blue;">Hello HTML</h1>
+	<h1 style="color: blue;">Hello HTML</h1>
+	<h1 style="color: blue;">Hello HTML</h1>
+</body>
+</html>
