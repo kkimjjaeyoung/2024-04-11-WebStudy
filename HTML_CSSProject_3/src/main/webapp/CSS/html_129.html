@@ -1,0 +1,43 @@
+<!-- 
+기본 선택자
+	전체 선택자 : *
+		*{속성 : 값;}		-		글꼴(통일. 크기조절)
+	태그 선택자 : 태그명...
+		태그명{속성 : 값;}	-사용자 정의는 거의 없다
+	구분자
+		ID : 중복 불가능
+		CLASS : 공통으로 적용되는 CSS. 중복가능.
+	
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+	h1:nth-child(2n+2){/*2번쨰, 4번쨰만 변경 */color: orchid;/*글자색상변경*/ background-color: yellow;/*글자 배경색 변경*/}
+	h1:first-child{color: blue;/*첫번째만 변경*/}
+	hr:last-child{color: green;/*마지막만 변경*/}
+
+	h1:nth-child(even){color: blue; /*짝수만*/}
+	h1:nth-child(odd){color: green;/*홀수만*/}
+	
+	/*:nth-child()는 규칙(수열)이 있는경우만 사용가능*/
+	.yellow{color: yellow;}
+	#red{color: red;} /*CSS에 ID가 중복이 되어도 적용은 되나 자바에서는 적용이 안됨*/
+</style>
+</head>
+<body>
+	<h1>Hello CSS</h1>
+	<h1 class="yellow">Hello CSS</h1>
+	<h1class="yellow">Hello CSS</h1>
+	<h1>Hello CSS</h1>
+	<h1 id="re">Hello CSS</h1>	<!-- 단독으로 사용시 id, 한번에 교체시 class-->
+	<h1 class="yellow">Hello CSS</h1>
+	<h1>Hello CSS</h1>
+	<h1 class="yellow">Hello CSS</h1>
+	<h1>Hello CSS</h1>
+	<h1 id="red">Hello CSS</h1>		<!-- id도 중복이 가능은 함-->
+</body>
+</html>
