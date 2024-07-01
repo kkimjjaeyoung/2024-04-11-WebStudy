@@ -20,6 +20,7 @@ public class MainClass {
 		try {
 			int k=1;
 			for(int i=1; i<=347; i++) {
+				try {
 				Document doc=Jsoup.connect("https://www.menupan.com/restaurant/bestrest/bestrest.asp?page="+i+"&trec=8674&pt=rt").get();
 				Elements link=doc.select("ul.list p.listName a");
 				for(int j=0; j<link.size();j++) {					
@@ -60,18 +61,23 @@ public class MainClass {
 					vo.setName(name.text().substring(0, name.text().indexOf("[")));
 					vo.setPhone(phone.text());
 					vo.setType(type.text());
-					vo.setAddress(address.text());
+					vo.setAddress(address.text());	
 					vo.setTheme(theme.text());
 					vo.setPoster(poster.attr("src"));
 					vo.setContent(content.text());
 					vo.setScore(Double.parseDouble(score.text()));
-					
+					dao.foodInsert(vo);
 					}
+				}catch (Exception ex) {
+						// TODO: handle exception
+				}
 			}
 			System.out.println("저장 완료");
 		}catch (Exception ex) {
 			// TODO: handle exception
-			
 		}
-	}
+		}
 }
+
+		
+

@@ -1,0 +1,117 @@
+<!-- 
+CSS : 선택자
+ 1. 태그 선택자 : 테그명 {} 	(태그명이 여러개일 때 : 태그명, 태그명...{속성:값} )
+ 2. 구분자 : id명{속성:값}		-중복없는 구분자,		class명{속성:값}	-중복있는 구분자
+ 3. 속성 선택자 : 태그명[속성=값] -equals,			태그명[속성^=값]	-startwith,		태그명[속성$=값]		-endwith,		태그명[속성*=값]		=contains
+ 4. 동위 선택자(형제 선택자), 자손선택자, 후손선택자
+ 	div : 태그형태는 트리형태로 구성(DOM)
+ 	 -h1, p, p(-h1) 구성일떄 
+ 	 	형제선택자 : 인접해있는 태그를 가져오는 경우( div > h1+p		:	h1옆에 있는 태그), 전체를 가져오는 경우(div > h1~p	:	h1옆에 있는 모든 태그)
+ 	 			-자손 선택자는 >, 후손선택자는 띄어쓰기
+ 5. 가상선택자 
+ 	hover : mouseover
+ 	checked : checkbox, radio
+ 	focus : text, button
+ 6. 구조선택자 : 같은 태그가 여러개 있을때 구분이 없는 경우(li, dd, td..)
+ 	nth-child(수열) 
+ 	first-child, last-child....
+ 7. 문자선택자 : ::after, ::before
+ 
+ **태그선택자는 사용자 정의가 없다. 디자인 관련, 이벤트 처리, 데이터 수집
+ 	1). 외부 CSS : 파일을 만들어서 처리(여러개의 파일이 공통으로 적용)
+ 	2). 내부 CSS : 한개의 파일에만 적용
+ 	3). 인라인 CSS : 한개의 태그에만 적용
+ 	
+ 	
+CSS 속성
+ 1. 택스트 관련속성
+ 	글자 크기 속성
+ 		font-size=단위		-(px, em). default=px:14, em:2em. em은 현재 폰트의 2배
+ 	글자 스타일
+ 		font-family=글씨체명	-순서대로 글씨체명을 지정해 글씨체가 없는 경우 다음 글씨체를 적용
+ 		font-weight=글씨체굵기	-볼드체 등 지정
+ 	정렬
+ 		text-align 			-left, center, right 정렬
+ 		text-decoration		-none, underline 붙이기
+ 		vertival-align 		-top, middle, botton 정렬
+ 		white-space			-자동 줄바꿈
+ 		line-height			-자간
+ 2. 이미지 관련 속성
+ 	background 관련
+ 		background-image:url('경로명')			-배경이미지
+ 		background-color:색명					-배경색. 지정된 색만 사용 가능. 혹은 rbg(000,000,000),#FFFFFF
+ 		background-size: width, height		-배경사이즈. cover시 자동조정
+ 		background:
+ 3. 위치 속성
+ 	margin: top right bottom left			-태그와 태그 사이의 여백
+ 		margin-left
+ 		margin-top
+ 		margin-right
+ 		margin-bottom
+ 			margin:10px		->	margin:10px, 10px, 10px, 10px
+ 			margin:10, 20	->	margin:10,20,10,20
+ 			margin:10,20,30	->	margin:10,20,30,20
+ 			//top과 bottom, right와left를 대칭해 삽입
+ 	padding:top right bottom left			-태그안에 문자, 이미지에 대한 위치 지정
+ 		padding-left
+ 		padding-top
+ 		padding-right
+ 		padding-bottom
+ 	border 									-태두리
+ 		border-width
+ 		border-style 
+ 		border-color
+ 			border: px, solid, color
+ 	
+ 4. 태두리 속성 : 문장, 이미지 등에 사용
+ 	border 									-태두리
+ 		border-width
+ 		border-style 
+ 		border-color
+ 			border: px, solid, color
+ 5. 목록 속성 : ol,ul,dl
+ 	list-sytle-type 						-nono
+ 6. 박스 모델
+ 	inline : input, img,textarea, select, b, em, span		-가로출력
+ 	block : div, table, ol, ul, br, p						-세로출력
+ 	inline-block
+ 7. POSITION
+ 	static 													-코딩순서대로 출력
+ 	absolute												-절대좌표
+ 	relative												-상대좌표
+ 	fixed													-고정
+ 8. 기타(레이어, 이돌속성)
+ 	z-index													-레이어
+ 	float													-left\right
+ 	 -clear: 해제
+ 	 -Layout 설정
+ 9. 반응형 웹 : @media
+ 	모바일, 윈도우 해상도에 맞게 화면 설정 
+ 10. CSS 라이브러리(bootstrap)
+ 	태그안에 CSS를 바로 적용
+-->
+
+<!-- 
+	
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{width:200px; height: 200px; background-color: red;}
+	.box1{margin:30px;}
+	.box2{margin: 30px 50px;}
+	.box3{margin: 30px 30px 30px 30px;}
+	.box4{margin: 30px 50px 30px 50px;}
+</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+	<div class="box4"></div>
+</body>
+</html>

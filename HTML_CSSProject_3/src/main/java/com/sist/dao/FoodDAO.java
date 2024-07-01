@@ -60,7 +60,7 @@ public class FoodDAO {
 			// TODO: handle exception
 			ex.printStackTrace();
 		}finally {
-			disConnection();
+			disConnection();	
 		}
 	}
 }
