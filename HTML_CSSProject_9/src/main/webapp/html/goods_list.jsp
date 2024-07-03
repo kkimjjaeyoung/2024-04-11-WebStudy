@@ -51,7 +51,7 @@ if(endPage>totalpage)
    %>
 	     <div class="col-sm-3">
 		     <div class="thumbnail"><!-- 이미지 카드: 이미지+제목 -->
-		      <a href="food_detail.jsp?fno=<%=vo.getNo()%>">
+		      <a href="goods_detail.jsp?no=<%=vo.getNo()%>">
 		       <img src="<%= vo.getGoods_poster() %>" style="width:240px;height: 200px" class="img-rounded"><!-- height는 자동 설정 -->
 		       <p class="a"><%=vo.getGoods_name() %></p>
 		      </a>
