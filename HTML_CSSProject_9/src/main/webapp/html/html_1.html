@@ -1,0 +1,92 @@
+<!-- 
+	CSS
+	 1. 택스트 관련 스타일
+	 	font-family : 글꼴 변경(font-family:글꼴,글꼴...)
+	 	font-size : 글자크기(font-size:단위)
+	 	font-weight : 글자굵기(font-weight:bold)
+	 	color : 글자 색상(color:색상)
+	 		색상 : (1. 지정된색상, 2. rgb(255,255,255), 3. rgba(red, green, blue, alpha->투명도)4. 색상코드(#FFFFFF))
+	 	text-decoration : none/underline/overline/line-through
+	 	text-transform : none/uppercase/lowercase
+	 	white-space : pre-warp :(자동 줄바꿈)
+	 	word-spacing : 글자간격
+	 	text-align : left/right/center
+	 2. background : 배경이미지/배경색상
+	 	background-color
+	 	background-image:url('경로명')
+	 		-그림이 작은경우 그림 반복(no-repeat : 반복제거)
+	 	background-size : width, height
+	 	background : 
+	 3. 목록 
+	 	list-style-type : none (desc|cycle)	
+	 4. 가시성
+	 	display : none/block/inline/inline-block(width, height)
+	 5. 여백
+	 	태그 밖 : margin(top, right, bottom, letf) : 태그와 태그 사이 여백, 브라우저와 태그 사이 여백
+	 			margin-letf
+	 			margin-right
+	 			margin-top
+	 			margin-bottom
+	 	태그 안 : padding(top, right, bottm, left) : 태그 안에 문자, 이미지 여백 
+	 			padding-letf
+	 			padding-right
+	 			padding-top
+	 			padding-bottom
+	 	태두리 : border(width, style, color)
+	 			border-sytle : 선의 종류
+	 			border-width : 두께
+	 			border-color : 색상
+	 			border-collpase : 통합
+	 			border-radius : 둥근 선
+	 	위치 이동 속성 : float(left/right)
+	 	배치 : static(코딩 순서대로 배치-default)
+	 		relative : 상대좌표
+	 		aboulute : 절대좌표
+	 		fixed : 고정
+	 		z-index : 레이어
+	 	기타 : overflow : hidden, scroll
+	 	
+	 			
+	 	-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#wrapper{border: 5px solid ; width:500px; margin-left: 150px; border-radius: collapse;}
+	#joinForm{display: table; margin:10px auto; border-collapse: collapse;}
+	#joinForm h1{display: table-caption; font-size: 15px; padding: 5px; margin-bottom:10px auto; width:450px ;}
+	#joinForm h1 span{text-align: center;}
+</style>
+</head>
+<body>
+	<div id="wapper">
+		<!-- 전송할 데이터를 모아서 전송-->
+		<!-- 
+		method : 전송방식
+			GET : URL뒤에 데이터를 첨부해서 전송
+			
+			POST : 네부 네트워크를 통해서 데이터 전송(보안유지 뛰어남. 대용량 전송)
+			PUT : 
+			DELETE : 
+		action : 데이터를 받는 파일명 저장
+		-->
+		<form id="joinForm">
+			<p>
+				<label for="id">ID</label>
+				<input type="text" id="id" class="cellstyle">
+			</p>			
+			<p>
+				<label for="pwd">PASSWORD</label>
+				<input type="password" id="pwd" class="cellstyle">
+			</p>
+			<p>
+				<label for="pwd">NAME</label>
+				<input type="text" id="name" class="cellstyle">
+			</p>			
+		</form>
+	</div>
+</body>
+</html>

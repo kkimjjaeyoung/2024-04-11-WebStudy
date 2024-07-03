@@ -35,7 +35,7 @@ public class FoodDAO {
 				vo.setPoster(rs.getString(2));
 				vo.setName(rs.getString(3));
 				
-				list add(vo);
+				list.add(vo);
 			}
 		}catch (Exception ex) {
 			ex.printStackTrace();
@@ -63,4 +63,50 @@ public class FoodDAO {
 		}
 		return total;
 	}
+	//상세보기
+	/*
+	 * UPDATE : 증가효과
+	 * DELETE : 삭제, 취소효과
+	 * INSERT : 추가효과
+	 */
+	public FoodVO foodDetailData(int fno) {
+		FoodVO vo=new FoodVO();
+		try {
+			conn=dbConn.getcoConnection();
+			String sql="UPDATE food_house SET hit=hit+1"
+					+ "WHERE fno=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, fno);
+			ps.executeUpdate();
+			
+			sql="SELECT fno, name, type, phone, address, theme, poster, content, score"
+					+ "FROM food_house"
+					+ "WHERE fno=?";
+			ps=conn.prepareStatement(sql);
+			//?에 값채우기
+			ps.setInt(1, fno);
+			//요청값 받기
+			ResultSet rs=ps.executeQuery();
+			//커서를 데이터 출력위치로 이동
+			rs.next();
+			vo.setFno(rs.getInt(1));
+			vo.setName(rs.getString(2));
+			vo.setType(rs.getString(3));
+			vo.setPhone(rs.getString(4));
+			vo.setAddress(rs.getString(5));
+			vo.setTheme(rs.getString(6));
+			vo.setPoster(rs.getString(7).replace("https", "http"));
+			vo.setContent(rs.getString(8));
+			vo.setScore(rs.getDouble(9));
+			//메모리 닫기
+			rs.close();
+		}catch (Exception ex) {
+			System.out.println( "fooddetail 오류" );
+			ex.printStackTrace();
+		}finally {
+			dbConn.diConnection(conn, ps);
+		}
+		return vo;
+	}
+
 }
