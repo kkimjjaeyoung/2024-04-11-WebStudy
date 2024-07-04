@@ -21,8 +21,8 @@ public class GoodsAllDAO {
 	public List<GoodsAllVO> goodsListData(int page){
 		List<GoodsAllVO> list=new ArrayList<GoodsAllVO>();
 		try {
-			conn=dbConn.getcoConnection();
-			String sql="SELECT no, goods_poster, goods_name FROM (SELECT no, goods_poster, goods_name, rownum as num FROM (SELECT (SELECT /*+ INDEX_ASC(goods_all fh_fno_pk)*/ no, goods_poster, goods_name FROM goods_all)) WHERE num BETWEEN ? AND ?";			
+			conn=dbConn.getConnection();
+			String sql="SELECT no, goods_poster, goods_name, num FROM (SELECT no, goods_poster, goods_name, rownum as num FROM (SELECT /*+ INDEX_ASC(goods_all fh_fno_pk)*/ no, goods_poster, goods_name FROM goods_all)) WHERE num BETWEEN ? AND ?";			
 			ps=conn.prepareStatement(sql);
 			int rowSize=12;
 			int start=(rowSize*page)-(rowSize-1);
@@ -41,14 +41,14 @@ public class GoodsAllDAO {
 		}catch (Exception ex) {
 			ex.printStackTrace();
 		}finally {
-			dbConn.diConnection(conn, ps);
+			dbConn.disConnection(conn, ps);
 		}
 		return list;
 	}
 	public int goodsTotalPage() {
 		int total=0;
 		try {
-			conn=dbConn.getcoConnection();
+			conn=dbConn.getConnection();
 			String sql="SELECT CEIL(COUNT(*)/12.0) FROM goods_all)";
 			//전송
 			ps=conn.prepareStatement(sql);
@@ -60,7 +60,7 @@ public class GoodsAllDAO {
 		}catch (Exception ex) {
 			ex.printStackTrace();
 		}finally {
-			dbConn.diConnection(conn, ps);
+			dbConn.disConnection(conn, ps);
 		}
 		return total;
 	}
@@ -75,9 +75,9 @@ public class GoodsAllDAO {
 	public GoodsAllVO goodsDetailData(int no) {
 		GoodsAllVO vo=new GoodsAllVO();
 		try {
-			conn=dbConn.getcoConnection();
-			String sql="UPDATE food_house SET hit=hit+1"
-					+ "WHERE fno=?";
+			conn=dbConn.getConnection();
+			String sql="UPDATE goods_all SET hit=hit+1"
+					+ "WHERE no=?";
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, no);
 			ps.executeUpdate();
@@ -107,7 +107,7 @@ public class GoodsAllDAO {
 			System.out.println( "goodsdetail 오류" );
 			ex.printStackTrace();
 		}finally {
-			dbConn.diConnection(conn, ps);
+			dbConn.disConnection(conn, ps);
 		}
 		return vo;
 	}
