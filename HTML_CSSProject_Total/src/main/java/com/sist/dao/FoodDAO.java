@@ -48,9 +48,9 @@ public class FoodDAO {
 				FoodVO vo=new FoodVO();
 				vo.setFno(rs.getInt(1));
 				vo.setName(rs.getString(2));
-				vo.setPoster(rs.getString(3));
+    			vo.setPoster(rs.getString(3).replace("https", "http"));
 				
-				add 
+				list.add(vo);
 			}
 		}catch (Exception ex) {
 			System.out.println("foodlistdata 오류");
@@ -58,5 +58,6 @@ public class FoodDAO {
 		}finally {
 			dbConn.disConnection(conn, ps);
 		}
+		return list;
 	}
 }
