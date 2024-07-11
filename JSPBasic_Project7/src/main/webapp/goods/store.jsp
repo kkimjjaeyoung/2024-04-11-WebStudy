@@ -39,9 +39,9 @@
 	<div style="height: 20px"></div>
 	<div class="row">
 		<div class="text-center">
-			<a href="../main.jsp?page=<%=curpage>1?curpage-1:curpage %>" class="btn btn-sm btn-danger">이전</a>
+			<a href="../main/main.jsp?page=<%=curpage>1?curpage-1:curpage %>" class="btn btn-sm btn-danger">이전</a>
 			<%=curpage %> page / <%=totalpage %> pages
-			<a href="../main.jsp?page=<%=curpage>totalpage?curpage+1:curpage %>" class="btn btn-sm btn-primary">다음</a>
+			<a href="../main/main.jsp?page=<%=curpage>totalpage?curpage+1:curpage %>" class="btn btn-sm btn-primary">다음</a>
 		</div>
 	</div>
 </body>

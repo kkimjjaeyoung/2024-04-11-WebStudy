@@ -1,29 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"  %>
-<jsp:useBean id="change" class="com.sist.change.JspChange"/>
-<%-- jspchange change=new jspchange --%>
+    pageEncoding="UTF-8"%>
+<%--
+내장객체
+	request
+	response
+	session
+	application
+	out
+	pageContext
+	page
+	config
+	exception
+	Cookie : 브라우저에 저장. 보안 취약
+	session : 서버에 저장
+	
+	MVC : MV/MVC
 
-<%
-	String mode=request.getParameter("mode");//화면변경
-	if(mode==null){//초기화면(첫 화면)일 때
-		mode="0";
-	}
-	int index=Integer.parseInt(mode);
-	String jsp=change.change(index);
+ --%>
+ <%
+ 	String mode=request.getParameter("mode");
+ 	if(mode==null){
+ 		mode="1";
+ 	}
+ 	int index=Integer.parseInt(mode);
+ 	String jsp="";
  	switch(index){
  	case 1:
- 		jsp="home.jsp";		
+ 		jsp="request.jsp";		
  		break;
  	case 2:
- 		jsp="detail.jsp";
+ 		jsp="response.jsp";
  		break;
  	case 3:
- 		jsp="store.jsp";
+ 		jsp="session.jsp";
  		break;
  	}
-	
-		
-%>
+ %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +47,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
   	.row{margin: 0px auto; width: 960px;}
-  	.a{white-space: nowrap; overflow:hidden; text-overflow:ellipsis;}
   </style>
 </head>
 <body>
