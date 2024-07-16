@@ -7,10 +7,13 @@
 	DataBoardDAO dao=DataBoardDAO.newInstance();
 	DataBoardVO vo=dao.databoardFileInfoData(Integer.parseInt(no));
 	String result=dao.databoardDelete(Integer.parseInt(no), pwd);
-	try{
-		if(result.equals("yes") && vo.getFilesize()!=0){
-			File f=new File
-		}
-	}catch(Exception ex){}
+	try
+     {
+    	 if(result.equals("yes") && vo.getFilesize()!=0)
+    	 {
+    		 File f=new File("c:\\upload\\"+vo.getFilename());
+    		 f.delete();
+    	 }
+     }catch(Exception ex){}
 %>
-<%= %>
+<%= result%>
