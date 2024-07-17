@@ -1,0 +1,70 @@
+<!-- 
+	DOCTYPE : 사용하는 html버전 정의(표준화). 태그와 속성정보 저장
+	 1. 태그 정의
+	 	<!ELEMENT html (head,body)>
+	 	<!ELEMENT head(meta*,link*,style*,script*, title)>
+	 	default : 반드시 한번 이상을 사용
+	 		* : 0번 이상
+	 		? : 0,1번 이상
+	 		+ : 1번 이상
+	 		| : 선택
+	  2. 속성 정의
+	  	<!ATTLIST meta CDATA charset required>
+	  3. Entity : 특수문자(변수)
+	  	<!ENTITY nbsp ' '>		-	&nbsp
+	  	<!ENTITY lt '<'>		-	&lt;
+	 -.dtd :XML 자체업체 반드시 제공
+	 -DCOTYPE : 이클립스 자동완성기(loose.dtd)
+	
+	
+<head>	 
+	<title> : 브라우저에 이름 부여(타이틀바)
+	<meta> : 한글변환, 화면이동, 모바일 크기 조정, 키워드 등록
+	<link> : CSS파일을 읽기
+	<script> : 정적 페이지->동적으로 변환
+	<style> : 화면 디자인
+		**HTML+CSS+Java = 표준화처리(라이브러리)
+</head>
+<body>
+	화면에 출력하는 내용
+</body>
+
+HTML 형식
+	ML(Markup Language) : 태그+속성
+	<태그명 속성=값..></태그명>
+ 데이터 저장 위치
+ 	<태그>데이터 내용</태그>
+ 	<태그 속성="데이터 내용">
+태그 종류
+	
+화면에 출력하는 태그 : 태그명, 속성명은 소문자 권장. 들여쓰기 구분
+ 1. 택스트 관련 태그
+ 	<h1>~<h6> : 제목 (h1, h3). <b>(bold)태그 포함.block형식 태그(한줄 전체 차지)
+	<b> : Bold
+	<i> : 이태릭
+	<sub>, <sup> : 첨자(아래첨자, 위첨자)
+	<address> : footer. 이태릭. 주소출력
+	<small> : 작은 글씨
+	<hr> : 수평선. block
+	<ins> : 밑줄
+	<del> : 취소선
+	<mark> : 형광색 표시
+	<blockquote> : 인용부호
+	<p> : 단락
+	<pre> : 있는 그대로 출력
+	
+	
+	
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

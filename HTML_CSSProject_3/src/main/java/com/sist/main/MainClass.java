@@ -21,19 +21,23 @@ public class MainClass {
 			int k=1;
 			for(int i=1; i<=347; i++) {
 				try {
-				Document doc=Jsoup.connect("https://www.menupan.com/restaurant/bestrest/bestrest.asp?page="+i+"&trec=8674&pt=rt").get();
-				Elements link=doc.select("ul.list p.listName a");
+				Document doc=Jsoup.connect("https://www.menupan.com/restaurant/bestrest/bestrest.asp?page="+i+"&trec=8674&pt=rt").get();	//목록 페이지
+				Elements link=doc.select("ul.list p.listName a");	//상세 페이지 링크 주소
 				for(int j=0; j<link.size();j++) {					
-					System.out.println(link.get(j).attr("herf"));
-					String url="https://www.menupan.com"+link.get(j).attr("herf");			//링크
+					System.out.println(link.get(j).attr("herf"));		//상세페이지 주소 attr로 지정
+					String url="https://www.menupan.com"+link.get(j).attr("herf");			//링크(i페이지의 j번째 상점 상세페이지 링크
 					System.out.println("업체번호:"+k++);
 					//상세보기 이동
 					 //상세보기 이미지
 					Document doc2=Jsoup.connect(url).get();
-					Element poster=doc2.selectFirst("div.areaThumbnail ul#id_restphoto_list_src img#restphoto_img_0");
+					Element poster=doc2.selectFirst("div.areaThumbnail ul#id_restphoto_list_src img#restphoto_img_0");	
+						//div class="areaThumbnail"	ul id="id_restphoto_list_src"	img id="restphoto_img_0"
+						//div 클래스 - ul id - img id
 					System.out.println(poster.attr("src"));
 					 //상세보기 이름
 					Element name=doc2.selectFirst("div.areaBasic dd.name");
+						//div class="areaBasic" dd class="name"
+						//div 클래스 - dd클래스
 					System.out.println(name.text().substring(0, name.text().indexOf("[")));
 					 //상세보기 음식 종류
 					Element type=doc2.selectFirst("div.areeBasic dd.type");

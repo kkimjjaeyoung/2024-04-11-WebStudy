@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.sist.dao.*,java.util.*"%>
-<jsp:useBean id="dao" class="com.sist.dao.FoodDAO"/>
+<jsp:useBean id="dao" class="com.sist.dao.campDAO"/>
 <jsp:useBean id="rDao" class="com.sist.dao.ReplyDAO"/>
 <%
+p
+
     String id=(String)session.getAttribute("id");
     String fno=request.getParameter("fno");
     // include => 파일전체에서 request를 공유할 수 있다 
     // mode => 화면 변경 => include되는 파일 찾기 
     // 나머지 데이터는 해당 JSP에서 처리 
-    FoodVO vo=dao.foodDetailData(Integer.parseInt(fno));
+    campVO vo=dao.foodDetailData(Integer.parseInt(fno));
     // 댓글목록 => fno
     List<ReplyVO> list=rDao.replyListData(Integer.parseInt(fno), 1);
-    
-	
 %>
 <!DOCTYPE html>
 <html>

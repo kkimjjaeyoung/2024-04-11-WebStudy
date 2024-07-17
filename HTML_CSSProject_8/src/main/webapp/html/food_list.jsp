@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*,com.sist.dao.*"%>
 <%
+p
+
     /*
        1. 사용자로부터 요청값을 받는다 => request.getParameter()
                                 =======================
@@ -11,7 +13,7 @@
        ### JSP파일은 컴파일이 되면 자동으로 자바는 사라지고 HTML를 메모리 출력이 된다 
     */
     // 오라클에서 데이터를 읽기 오기 
-    FoodDAO dao=FoodDAO.newInstance(); // 싱글턴 
+    campDAO dao=FoodDAO.newInstance(); // 싱글턴 
     // 사용자가 페이지 요청 
     // 요청한 페이지 받기 
     String strPage=request.getParameter("page");
@@ -20,9 +22,9 @@
     	strPage="1";
     int curpage=Integer.parseInt(strPage);
     
-    List<FoodVO> list=dao.foodListData(curpage);
+    List<campVO> list=dao.foodListData(curpage);
     
-    for(FoodVO vo:list)
+    for(campVO vo:list)
     {
     	String img=vo.getPoster();
     	img=img.replace("https", "http");
@@ -75,8 +77,10 @@
   <div class="container">
    <div class="row">
    <%
-       for(FoodVO vo:list)
-       {
+   p
+
+          for(campVO vo:list)
+          {
    %>
 	     <div class="col-sm-3">
 		     <div class="thumbnail"><!-- 이미지 카드: 이미지+제목 -->

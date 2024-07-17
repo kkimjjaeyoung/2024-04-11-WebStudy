@@ -7,9 +7,11 @@
 		fno=1    
 --%>
 <%
-FoodDAO dao=FoodDAO.newInstance();
+p
+
+campDAO dao=FoodDAO.newInstance();
 String fno=request.getParameter("fno");
-FoodVO vo=dao.foodDetailData(Integer.parseInt(fno));
+campVO vo=dao.foodDetailData(Integer.parseInt(fno));
 //vo에 저장된 데이터 출력
 %>
 <!DOCTYPE html>

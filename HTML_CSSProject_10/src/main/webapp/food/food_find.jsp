@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*,com.sist.dao.*"%>
 <%
+p
+
     /*
         http://localhost/HTMLCSSProject_10/food/food_find.jsp
          => addr==null
@@ -20,8 +22,8 @@
     
     int curpage=Integer.parseInt(strPage); // 현재 보여주는 페이지 
     
-    FoodDAO dao=FoodDAO.newInstance();
-    List<FoodVO> list=dao.foodFindData(addr, curpage);
+    campDAO dao=campDAO.newInstance();
+    List<campVO> list=dao.foodFindData(addr, curpage);
     int totalpage=dao.foodFindTotalPage(addr);
     
     /*
@@ -49,7 +51,6 @@
     	    5. JSTL / EL 
     	    ***6. MVC 
     */
-    
 %>
 <!DOCTYPE html>
 <html>
@@ -76,15 +77,17 @@
   <div class="container">
     <div class="row">
       <form method="post" action="food_find.jsp">
-       <input type=text name="addr" size=20 class="input-sm" value="<%=addr%>">
+       <input type=text name="addr" size=20 class="input-sm" value="<%=t(ad%>">
        <input type="submit" value="검색" class="btn-sm btn-danger">
       </form>
     </div>
     <div style="height: 20px"></div>
     <div class="row">
      <%
-       for(FoodVO vo:list)
-       {
+     p
+
+            for(campVO vo:list)
+            {
      %>
 	      <div class="col-sm-3">
 	        <a href="#">

@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*, com.sist.dao.* " %>
 <%
+p
+
 	String type=request.getParameter("type");
 	if(type==null){
 		type="1";
@@ -12,8 +14,8 @@
 	}
 	int curpag=Integer.parseInt(strPage);
 	
-	FoodDAO dao=FoodDAO.newInstance();
-	List<FoodVO> list=dao.foodListData(Integer.parseInt(type), curpage);
+	campDAO dao=campDAO.newInstance();
+	List<campVO> list=dao.foodListData(Integer.parseInt(type), curpage);
 	int totalpage=dao.foodFindTotalPage(Integer.parseInt(type));
 	
 	//페이지 이동 : 1~10, 11~20.....
@@ -25,7 +27,6 @@
 	if(endPage>totalpage){
 		endPage=totalpage;
 	}
-	
 %>
 <!DOCTYPE html>
 <html>
@@ -60,7 +61,9 @@
 	<div style="height":20px></div>
 	<div class="row">
 		<%
-		for(FoodVO vo:list){
+		p
+
+				for(campVO vo:list){
 		%>
 		<div class="col-sm-3">
 			<a herf="#">
