@@ -57,7 +57,6 @@ public class MainClass {
 					 //상세보기 리뷰
 					Element content=doc2.selectFirst("div.article div#info_ps_f");
 					System.out.println(content.text());
-					System.out.println(content.text());
 					System.out.println();
 					
 					//db에 넣기
