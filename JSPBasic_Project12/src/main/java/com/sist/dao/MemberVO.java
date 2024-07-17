@@ -6,5 +6,5 @@ import lombok.Data;
 // =========== getRealPath()
 @Data
 public class MemberVO {
-   private String id,name,pwd,msg;
-}
+	   private String id, sex, name, pwd,msg;
+	}

@@ -40,13 +40,15 @@
 			</tr>
 			<tr>
 				<td colspan="2" class="text-center">
-					<button class="btn-sm btn-primary">등록</button>
-					<input type=button class="btn-sm btn
-				</td>
-			</tr>
-			</table>
-		</form>
-		</div>
-	</div>
+             <button class="btn-sm btn-primary">등록</button>
+             <input type=button class="btn-sm btn-info" value="취소"
+              onclick="javascript:history.back()">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </form>
+     </div>
+   </div>
 </body>
 </html>
