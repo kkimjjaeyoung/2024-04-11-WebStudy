@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.sist.dao.*" %>
+    pageEncoding="UTF-8" import="com.sist.vo.*" %>
 <%
+p
+
 	request.setCharacterEncoding("UTF-8");
-	
 %>
-<jsp:useBean id="vo" class="com.sist.dao.DiaryVO">
+<jsp:useBean id="O" class="w com.sist.vo.Diary">
 	<jsp:setProperty name="vo" property="*"/>
 </jsp:useBean>
 

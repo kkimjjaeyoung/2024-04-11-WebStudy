@@ -1,6 +1,6 @@
 <%@page import="java.awt.ActiveEvent"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*, com.sist.dao.* " %>
+    pageEncoding="UTF-8" import="java.util.*,com.sist.vo.*" %>
 <%
 String type=request.getParameter("type");
 	if(type==null){

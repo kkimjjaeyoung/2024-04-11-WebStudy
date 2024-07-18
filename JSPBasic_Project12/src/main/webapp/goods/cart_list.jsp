@@ -1,4 +1,4 @@
-<%@page import="com.sist.dao.CartVO"%>
+<%@page import="com.sist.vo.CartVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*" %>
 <%

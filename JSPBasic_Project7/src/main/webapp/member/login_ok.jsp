@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.sist.dao.*" %>
+    pageEncoding="UTF-8" import="com.sist.vo.*" %>
 
 <%--  MemberDAO dao=new MemberDAO() --%>
-<jsp:useBean id="dao" class="com.sist.dao.MemberDAO"/>
+<jsp:useBean id="O d" class="w com.sist.vo.MemberD"/>
 
 <%
     // 사용자가 보내준 ID,PWD를 받는다 

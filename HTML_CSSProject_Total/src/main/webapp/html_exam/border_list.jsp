@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*, com.sist.dao.*, java.text.SimpleDateFormat" %>
+    pageEncoding="UTF-8" import="java.util.*,com.sist.vo.*, java.text.SimpleDateFormat" %>
 <%
     // 사용자 보내준 값을 받는다 => 페이지 => request.getParemter()
     String strPage=request.getParameter("page");
