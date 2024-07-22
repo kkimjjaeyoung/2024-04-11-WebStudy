@@ -1,0 +1,16 @@
+<!-- 
+	클래스 등록 / sql 문장 등록
+	스프링			MyBatis
+ -->
+ <!-- 
+ 	XML 장점 : 모든 언어에 호환 가능. 운영체제 호환성이 좋음(문서형 데이터베이스). 루트=table명
+ 	XML 단점 : 태그가 사용자 정의. 문법이 엄격(반드시 루트는 하나만 사용가능). 
+  -->
+<?xml version="1.0" encoding="UTF-8"?>
+<bean><!-- bean태그 : 클래스 여러개를 묶어서 저장 후 사용 -->
+	<bean id="list.do" class="com.sist.model.ListModel"/>
+	<bean id="insert.do" class="com.sist.model.InsertModel"/>
+	<bean id="update.do" class="com.sist.model.UpdateModel"/>
+	<bean id="delete.do" class="com.sist.model.DeleteModel"/>
+	<bean id="find.do" class="com.sist.model.FindModel"/>
+</bean>
