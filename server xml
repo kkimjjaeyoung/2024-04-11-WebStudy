@@ -1,0 +1,8 @@
+<Context docBase="JSPMVCLastProject" path="/JSPMVCLastProject" reloadable="true" source="org.eclipse.jst.jee.server:JSPMVCLastProject">
+
+
+    <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="10" maxWait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="hr"/>
+  </Context>
+      
+      
+ </Host>
