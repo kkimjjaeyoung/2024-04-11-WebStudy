@@ -16,7 +16,7 @@ public class SeoulDAO {
 		return dao;
 	}
 	
-	public List<LocationVO> seoullocation(){
+	public List<LocationVO> seoulTop12(){
 		List<LocationVO> list=new ArrayList<LocationVO>();
 		try {
 			conn=dbconn.getConnection();

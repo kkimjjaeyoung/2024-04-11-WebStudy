@@ -12,16 +12,15 @@ public class MainModel {
 			List<FoodVO> fList=fDao.foodTop12();
 			
 			SeoulDAO sDao=SeoulDAO.newInstance();
-			List<LocationVO> lList=sDao.seoullocation(); 
+			List<LocationVO> sList=sDao.seoulTop12(); 
 			
 			GoodsDAO gDAO=GoodsDAO.newInstance();
 			List<GoodsVO> gList=gDAO.goodsTop12();
 			
 			request.setAttribute("gList", gList);
-			request.setAttribute("lList", lList);
+			request.setAttribute("sList", sList);
 			request.setAttribute("fList", fList);
 			request.setAttribute("main_jsp", "../main/home.jsp");
 			return "../main/main.jsp";
 		}
 }
-
