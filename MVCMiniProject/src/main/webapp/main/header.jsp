@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
 	MVC : html, java분리해서 사용
 		-소스가 적어진다/파일이 적어진다(X)
@@ -28,14 +29,25 @@
       <h1><a href="../main/main.do">맛집 AND 서울여행</a></h1>
     </div>
     <div class="fl_right">
-      <ul class="inline">
+    <c:if test="${sessionScope.id==null }">	<!-- 로그인창 -->
+      <ul class="inline">	
         <li><i class="fa fa-user" aria-hidden="true"></i><input type="text" class="input-sm" placeholder="아이디" style="width: 120px"></li>
         <li><i class="fa fa-unlock-alt" aria-hidden="true"></i> <input type="password" class="input-sm" placeholder="비밀번호" style="width: 120px"></li>
         <li><input type=image src="../main/login.png" style="width: 100px;height: 25px;"></li>
       </ul>
+      </c:if>
+	<c:if test="${sessionScope.id!=null }">	<!-- 로그아웃창 -->
+      <ul class="inline">	
+        <li>${sessionScope.name}인이 로그인되었습니다</li>
+        <li><input type=image src="../main/login.png" style="width: 100px;height: 25px;"></li>
+      </ul>
+	</c:if>
     </div>
    </header>
 </div>
+<%--
+	${sessionScope.id}	==	${id} : 새션스코프는 생략가능하나 request등과의 구분을 위해 쓰는것이 좋다
+ --%>
 <div class="wrapper row2">
   <nav id="mainav" class="clear"> 
     <ul class="clear">
@@ -51,7 +63,9 @@
         <ul>
           <li><a href="../food/list.do">맛집 목록</a></li>
           <%-- Controller를 찾을때 URL패턴 => .do --%>
+          <c:if test="${sessionScope.id!=null }">
           <li><a href="pages/full-width.html">맛집 예약</a></li>
+		  </c:if>
           <li><a href="../food/find.do">지역별 맛집 찾기</a></li>
           <li><a href="pages/sidebar-left.html">맛집 뉴스</a></li>
         </ul>
@@ -67,14 +81,23 @@
       </li>
       <li><a class="drop" href="#">커뮤니티</a>
         <ul>
-          <li><a href="pages/gallery.html">자유 게시판</a></li>
+          <li><a href="../board/list.do">자유 게시판</a></li>
+          <c:if test="${sessionScope.id!=null }">
           <li><a href="pages/full-width.html">공지사항</a></li>
+		  </c:if>
           <li><a href="pages/sidebar-left.html">묻고 답하기</a></li>
           <li><a href="pages/sidebar-left.html">실시간 채팅</a></li>
         </ul>
       </li>
       <li><a href="#">스토어</a></li>
-      <li><a href="#">마이페이지</a></li>
+      <c:if test="${sessionScope.id!=null }">
+      	<c:if test="${sessionScope.admin=='n' }">		
+      	<li><a href="#">마이페이지</a></li>
+      	</c:if>
+      	<c:if test="${sessionScope.admin=='y' }">
+      	<li><a href="#">관리자페이지</a></li>
+      	</c:if>
+      </c:if>
     </ul>
     </nav>
 </div>

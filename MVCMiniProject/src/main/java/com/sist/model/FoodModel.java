@@ -5,6 +5,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sist.commons.CommonsModel;
 import com.sist.controller.*;
 import com.sist.dao.*;
 import com.sist.vo.*;
@@ -51,6 +52,7 @@ public class FoodModel {
 		   request.setAttribute("endPage", endPage);
 		   // include되는 파일을 전송 
 		   request.setAttribute("main_jsp", "../food/list.jsp");
+		   CommonsModel.commonsData(request);
 		   return "../main/main.jsp"; // jsp 파일 지정 => include가 된 경우 : main.jsp로 이동 
 	   }
 	   @RequestMapping("food/before_detail.do")
@@ -90,15 +92,51 @@ public class FoodModel {
 		   request.setAttribute("sList", sList);
 		   request.setAttribute("gu", addr2);
 		   request.setAttribute("main_jsp", "../food/detail.jsp");
+		   CommonsModel.commonsData(request);
 		   return "../main/main.jsp";
 	   }
 	   //2. 맛집 검색
-	   @RequestMapping("food/food.do")
-	   public String food_find(HttpServletRequest request, HttpServletResponse response) {
+	   @RequestMapping("food/find.do")
+	   public String food_find(HttpServletRequest request,HttpServletResponse response)
+	   {
 		   String gu=request.getParameter("gu");
-		   String page=request.getParameter("");
-		   22
-		   return "";
+		   String page=request.getParameter("page");
+		   if(page==null)
+			   page="1";
+		   if(gu==null)
+			   gu="4";
+		   
+		   int curpage=Integer.parseInt(page);
+		   FoodDAO dao=FoodDAO.newInstance();
+		   List<FoodVO> list=dao.foodFindData(curpage, guList[Integer.parseInt(gu)]);
+		   int totalpage=dao.foodFindTotalPage(guList[Integer.parseInt(gu)]);
+		   // 응답 : response 
+		   final int BLOCK=10;
+		   int startPage=((curpage-1)/BLOCK*BLOCK)+1;// 1 11 21...
+		   /*
+		    *   startPage = 1 
+		    *      curpage = 1~10
+		    *   endPage = 10
+		    *      curpage = 1~10
+		    */
+		   int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;// 10 20 30...
+		   
+		   if(endPage>totalpage)
+			   endPage=totalpage; // 23
+		   
+		   int count=dao.foodFindCount(guList[Integer.parseInt(gu)]);
+		   request.setAttribute("list", list);
+		   request.setAttribute("curpage", curpage);
+		   request.setAttribute("totalpage", totalpage);
+		   request.setAttribute("startPage", startPage);
+		   request.setAttribute("endPage", endPage);
+		   request.setAttribute("gu", gu);
+		   request.setAttribute("fd", guList[Integer.parseInt(gu)]);
+		   request.setAttribute("count", count);
+		   request.setAttribute("main_jsp", "../food/find.jsp");
+		   CommonsModel.commonsData(request);
+		   return "../main/main.jsp";
+		   
 	   }
 	   //3. 맛집 예약 
 	   //4. 맛집 추천 
