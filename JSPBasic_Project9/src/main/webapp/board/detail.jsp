@@ -3,10 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	EmpDAO dao=EmpDAO.newInstance();
+EmpModel dao=EmpModel.newInstance();
 	String empno=request.getParameter("empno");
 	EmpVO vo=dao.empDetailData(Integer.parseInt(empno));
-	
 %>
 
 <!DOCTYPE html>

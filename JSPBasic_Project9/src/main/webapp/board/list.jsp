@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*,com.sist.vo.*" %>
 <%
-	//실행. 데이터 가져오기. html을 통해 출력
-	EmpDAO dao=EmpDAO.newInstance();
+//실행. 데이터 가져오기. html을 통해 출력
+	EmpModel dao=EmpModel.newInstance();
 	List<EmpVO> list=dao.empListData();
-	//자바-오라클-자바-jsp (view)	==model			->		Model+View(Controller) 
+	//자바-오라클-자바-jsp (view)	==model			->		Model+View(Controller)
 %>
 <!DOCTYPE html>
 <html>
