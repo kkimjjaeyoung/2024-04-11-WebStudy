@@ -5,7 +5,7 @@
 <%
 EmpModel dao=EmpModel.newInstance();
 	String empno=request.getParameter("empno");
-	EmpVO vo=dao.empDetailData(Integer.parseInt(empno));
+	EmpModel vo=dao.empDetailData(Integer.parseInt(empno));
 %>
 
 <!DOCTYPE html>

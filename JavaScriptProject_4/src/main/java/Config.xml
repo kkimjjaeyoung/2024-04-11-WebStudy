@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Connection : getConnection/disConnection -->
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!-- 
+ (properties?, settings?, typeAliases?, typeHandlers?, objectFactory?, objectWrapperFactory?, 
+ reflectorFactory?, plugins?, environments?, databaseIdProvider?, mappers?)
+ **특이사항 없는 태그 : 반드시 1번 이상 사용하여야 하는 태그
+ **'?'가 들어간 태그 : 선택적으로 사용하는 태그
+ **'*'가 붇은 태그 : 0번 이상 사용하여야 하는 태그
+ **'+'1번 이상 사용하여야 하는 태그
+ 
+ ( properties, settings, typeAliases, environments, mappers )
+ propertise : 파일을 읽기(오라클 정보)
+ setting : 캐쉬 메모리(자주 사용하는 sql을 저장해서 사용
+ typeAliases : VO를 등록
+ environments : 오라클 연결하는 정보 전송
+ mappers : SQL문장을 처리
+ 
+ -xml태그는 MyBatis에서만 사용가능
+ MyBatis : Mapper(DB만 연결)
+ 	사용자 정의 태그
+ 	
+ 	1. 대소문자 구분	
+ 	2. 최상위 태그가 존재
+ 	3. 속성값 ="" 		: 속성은 지정된 속성만 사용 가능
+ 	4. 여는태그와 닫는 태그가 동일해야함
+ 	5. 태그 작성 순서가 존재(위 사항)
+ 	
+ 	프로젝트 패키지
+ 	1. com.sist.model
+ 	2. com.sist.dao
+ 	3. com.sist.vo
+ 	4. com.sist.mapper	(xml)
+ 	5. com.sist.manager 
+ -->
+ 	<!-- VO등록 -->
+	<typeAliases>
+		<typeAlias  type="com.sist.dao.EmpVO" alias="EmpVO"/>
+		<typeAlias  type="com.sist.dao.BoardVO" alias="BoardVO"/>
+	</typeAliases>
+	<!-- Connection -->
+	<environments default="development">
+		<environment id="development">
+			<!-- COMMIT / ROLLBACK -->
+			<transactionManager type="JDBC"/>
+			<!-- 
+				POOLED = DBCP	-default == MaxActive*8, MaxIdle:8
+				UNPOOLED = 일반 JDBC	-s
+			 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+				<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+				<property name="username" value="hr"/>
+				<property name="password" value="happy"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- SQ:문장 읽기 -->
+	<mappers>
+		<!-- 테이블마다 1개씩 생성 -->
+		<mapper resource="con/sist/dao/emp-mapper.xml"/>
+	</mappers>

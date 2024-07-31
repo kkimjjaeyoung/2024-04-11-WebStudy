@@ -3,7 +3,7 @@
 <%
 //실행. 데이터 가져오기. html을 통해 출력
 	EmpModel dao=EmpModel.newInstance();
-	List<EmpVO> list=dao.empListData();
+	List<EmpModel> list=dao.empListData();
 	//자바-오라클-자바-jsp (view)	==model			->		Model+View(Controller)
 %>
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
 				<th class="text-center">성과급</th>
 			</tr>
 			<%
-				for(EmpVO vo:list){
+			for(EmpModel vo:list){
 			%>
 			<tr>
 		       <td class="text-center"><%=vo.getEmpno() %></td>

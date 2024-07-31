@@ -31,7 +31,7 @@ EmpModel dao=EmpModel.newInstance();
 				<th class="text-center">근무지</th>
 			</tr>
 			<%
-				for(EmpVO vo:list){
+			for(EmpModel vo:list){
 			%>
 			<tr>
 		       <td class="text-center"><%=vo.getEmpno() %></td>
