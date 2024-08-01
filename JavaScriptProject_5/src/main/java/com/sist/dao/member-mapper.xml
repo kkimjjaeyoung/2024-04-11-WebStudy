@@ -1,0 +1,18 @@
+<!--  PreparedStatement : SQL, ResuletSet : 결과값 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.sist.dao.mmember.member-mapper">
+	<select id="postFind" resultType="ZipcodeVO" parametryType="string">
+		SELECT zipcode, sido, gugun, dong,NVL(bunji, ' ') as bunji
+		FROM zipcode 
+		WHERE dong LIKE '%'||#{dong}||'%'
+	</select>
+	<select id="postFindCount" resultType="int" parametryType="string">
+		SELECT count(*)
+		FROM zipcode 
+		WHERE dong LIKE '%'||#{dong}||'%'
+	</select>
+</mapper> 
