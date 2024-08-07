@@ -17,7 +17,7 @@ public class CreateSqlSessionFactory {
 	}
 	
 	public static SqlSessionFactory getSsf() {
-		return ssf;
+		return  ssf;
 	}
 	
 }

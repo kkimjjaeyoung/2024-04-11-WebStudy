@@ -16,9 +16,8 @@
         <li><a href="#"><img class="radius-10" src="../images/demo/slides/back3.jpg" style="width:978px;height:400px"></a></li>
       </ul>
     </div>
-  </div>
+    </div>
 </div>
-
 <div class="wrapper row3">
   <main class="container clear"> 
     <!-- main body --> 

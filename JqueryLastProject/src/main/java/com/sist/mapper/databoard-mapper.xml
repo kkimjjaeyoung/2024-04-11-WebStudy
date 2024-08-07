@@ -1,0 +1,42 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.sist.mapper.databoard-mapper">
+ <!-- 
+	 <sql> : SQL문장의 중복 제거(include)
+	 <select id="" resultType="" parameterType="" resultMap=""> : 
+	 <insert id="" parameterType=""> : selectKey ==자동증가번호
+	 <update id="" parameterType="">
+	 <delete id="" parameterType="">
+	 ** id: 구분자. resultType : 결과값. parameterType : ?에 값을 채운다. resultMap : 컬럼명이 다른 경우.
+	  **id는 중복되면 안된단
+  -->
+  <!-- 추가 -->
+  <insert id="databoardInsert" parameterType="DataBoardVO">
+  	INSERT INTO project_databoard VALUES(
+  		(SELECT NVL (MAX(NO)+1,1) FROM project_databoard),
+  		#{name}, #{subject}, #{content}, #{pwd}, SYSDATE, 0, #{filename}, #{filesize}
+  	)
+  </insert>
+  <!-- 목록 -->
+	<select id="databoardListData" parameterType="hashmap" resultType="DataBoardVO">
+	   	SELECT no, subject, name, TO_CHAR(regdate, 'YYYY-MM-DD') as dbday, hit, num
+	 	FROM (SELECT no, subject, name, regdate, hit, rounum as num
+	 	FROM (SELECT /*+INDEX_DESC(project_databoard pb_no_pk)*/ no, subject, name, regdate, hit
+	 	FROM project_databoard))
+	 	WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	<select id="databoardRowCount" resultType="int">
+ 		SELECT COUNT(*) FROM project_databoard
+ 	</select>
+  <!-- 상세보기 -->
+  
+  <!-- 수정 -->
+  
+  <!-- 삭제 -->
+  
+  <!-- 동적쿼리 -->
+ 	
+ </mapper>

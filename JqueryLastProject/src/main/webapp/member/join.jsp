@@ -18,7 +18,7 @@ $(function(){
 		Shadowbox.open({
 			content:'../member/idcheck.jsp',		//content : 창 띄우기
 			player:'iframe',
-			title:'아이디중복체크'.
+			title:'아이디중복체크',
 			width:350,
 			height:250
 		})
@@ -27,11 +27,11 @@ $(function(){
 </script>
 </head>
 <body>
-<div class="wrapper row3">
-	<main class="container clear">
-	<h2 class=sectiontitle>회원가입</h2>
-		<input type="button" class="btn btn-sm btn-danger" value="아이디체크" id="checkBtn">
-	</main>
-</div>
+	<div class="wrapper row3">
+		<main class="container clear">
+		<h2 class="sectiontitle">회원가입</h2>
+			<input type="button" class="btn btn-sm btn-danger" value="아이디체크" id="checkBtn">
+		</main>
+	</div>
 </body>
 </html>

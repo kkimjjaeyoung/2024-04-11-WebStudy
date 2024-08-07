@@ -7,7 +7,9 @@
    <properties resource="db.properties"/>
    <!-- VO를 등록 MyBatis에서 값을 저장 -->
    <typeAliases>
-     <typeAlias type="com.sist.dao.MemberVO" alias="MemberVO"/>
+     <typeAlias type="com.sist.vo.MemberVO" alias="MemberVO"/>
+     <typeAlias type="com.sist.vo.BoardVO" alias="BoardVO"/>
+     <typeAlias type="com.sist.vo.DataBoardVO" alias="DataBoardVO"/>
    </typeAliases>
    <!-- connection관련 : getConnection/disConnection -->
     <environments default="development">
@@ -22,6 +24,8 @@
     </environment>
    </environments>
    <mappers>
-     <mapper resource="com/sist/dao/member-mapper.xml"/>
+     <mapper resource="com/sist/mapper/member-mapper.xml"/>
+     <mapper resource="com/sist/mapper/board-mapper.xml"/>
+     <mapper resource="com/sist/mapper/databoard-mapper.xml"/>
    </mappers>
 </configuration>

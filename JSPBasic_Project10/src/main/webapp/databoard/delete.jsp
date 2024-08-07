@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.io.*,com.sist.vo.*"%>
 <%
-	String no=request.getParameter("id");
+String no=request.getParameter("id");
 	String pwd=request.getParameter("pwd");
 	
-	DataBoardDAO dao=DataBoardDAO.newInstance();
+	DataBoardVO dao=DataBoardVO.newInstance();
 	DataBoardVO vo=dao.databoardFileInfoData(Integer.parseInt(no));
 	String result=dao.databoardDelete(Integer.parseInt(no), pwd);
 	try

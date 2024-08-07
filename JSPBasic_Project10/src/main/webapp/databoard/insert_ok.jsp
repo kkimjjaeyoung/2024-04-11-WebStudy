@@ -9,12 +9,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.io.*,com.sist.vo.*" %>
 <%
-	request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 	String path="c:\\upload";
 	try{
 		File dir=new File(path);		//폴더가 없을시 생성
 		if(!dir.exists()){
-			dir.mkdir();
+	dir.mkdir();
 		}
 	}catch(Exception ex){}	
 	String euctype="UTF-8"; //한글 파일명
@@ -42,7 +42,7 @@
 		vo.setFilesize((int)f.length());
 	}
 	
-	DataBoardDAO dao=DataBoardDAO.newInstance();
+	DataBoardVO dao=DataBoardVO.newInstance();
 	dao.dataBoardInsert(vo);	//db에 추가
 	
 	//이동

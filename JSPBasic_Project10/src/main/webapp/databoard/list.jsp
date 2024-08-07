@@ -4,7 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*,com.sist.vo.*" %>
 <%
-	//사용자로부터 페이지번호 수령
+//사용자로부터 페이지번호 수령
 	String strPage=request.getParameter("page");
 	if(strPage==null){	//실행시. 사용자로부터 페이지를 받지 못한경우, default페이지 설정
 		strPage="1";
@@ -12,7 +12,7 @@
 	//현제페이지
 	int curpage=Integer.parseInt(strPage);
 	//해당페이지 데이터
-	DataBoardDAO dao=DataBoardDAO.newInstance();
+	DataBoardVO dao=DataBoardVO.newInstance();
 	//==<jsp:useBean id="dao" class="DataBoardDAO"		-	MVC(Spring)에서는 사용 안함
 	List<DataBoardVO> list=dao.databoardListData(curpage);
 	int count=dao.databoardRowCount();			//번호 순차 출력

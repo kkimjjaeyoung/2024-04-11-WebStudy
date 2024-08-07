@@ -2,8 +2,8 @@
     pageEncoding="UTF-8" import="com.sist.vo.*" %>
 
 <%
-	String no=request.getParameter("no");
-	DataBoardDAO dao=DataBoardDAO.newInstance();
+String no=request.getParameter("no");
+	DataBoardVO dao=DataBoardVO.newInstance();
 	DataBoardVO vo=dao.databoardDetailData(Integer.parseInt(no));
 %>
 <!DOCTYPE html>
