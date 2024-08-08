@@ -1,9 +1,9 @@
 package com.sist.dao;
-import java.io.*;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import java.io.*;
 
 public class CreateSqlSessionFactory {
 	private static SqlSessionFactory ssf;
@@ -17,7 +17,7 @@ public class CreateSqlSessionFactory {
 	}
 	
 	public static SqlSessionFactory getSsf() {
-		return  ssf;
+		return ssf;
 	}
 	
 }

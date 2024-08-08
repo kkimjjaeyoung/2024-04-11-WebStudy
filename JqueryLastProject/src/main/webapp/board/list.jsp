@@ -39,6 +39,9 @@
        <tr>
 	      <td width=10% class="text-center">${count }</td>
 	      <td width=55%>
+	      <c:if test="${5<=vo.hit }">
+	        <sup>👍👍</sup>
+	      </c:if>
 	      <a href="../board/detail.do?no=${vo.no }">${vo.subject }</a>
 	      &nbsp;
 	      <c:if test="${today==vo.dbday }">

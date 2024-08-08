@@ -53,20 +53,20 @@
      </c:forEach>
     </table>
     <table class="table">
-    	<tr>
-    		<td class="text-left" inline>
-    			<input type="checkbox" value="N">이름
-    			<input type="checkbox" value="S">제목
-    			<input type="checkbox" value="C">내용
-    			<input type=text name=ss size=15 class="input-sm">
-    			<input type=submit value="검색" class="btn-sm btn-success">
-    		</td>
-    		<td class="text-right">
-		       <a href="#" class="btn btn-sm btn-success">이전</a>
-		       ${curpage } page / ${totalpage } pages
-		       <a href="#" class="btn btn-sm btn-info">다음</a>
-		    </td>
-    	</tr>
+     <tr>
+      <td class="text-left inline">
+       <input type="checkbox" value="N">이름
+       <input type="checkbox" value="S">제목
+       <input type="checkbox" value="C">내용
+       <input type=text name=ss size=15 class="input-sm">
+       <input type=submit value="검색" class="btn btn-sm btn-success">
+      </td>
+      <td class="text-right">
+       <a href="#" class="btn btn-sm btn-success">이전</a>
+       ${curpage } page / ${totalpage } pages
+       <a href="#" class="btn btn-sm btn-info">다음</a>
+      </td>
+     </tr>
     </table>
    </div>
   </main>

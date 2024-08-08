@@ -1,5 +1,5 @@
 package com.sist.model;
-import java.io.PrintWriter;
+	import java.io.PrintWriter;
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,24 +12,25 @@ import com.sist.vo.*;
 
 public class MemberModel {
 	@RequestMapping("member/login.do")
-	public void member_login(HttpServletRequest request, HttpServletResponse response) {
-		String id=request.getParameter("id");
-		String pwd=request.getParameter("pwd");
-		MemberVO vo=MemberDAO.isLogin(id, pwd);
-		if(vo.getMsg().equals("OK")) {
-			HttpSession session=request.getSession();
-			session.setAttribute("id", vo.getId());
-			session.setAttribute("name", vo.getName());
-			session.setAttribute("admin", vo.getAdmin());
-		}
-		//ajax로 데이터 전송
-		try {
-			PrintWriter out=response.getWriter();
-			out.write(vo.getMsg());
-		}catch (Exception ex) {
-			ex.printStackTrace();
-		}
-	}
+	public void member_login(HttpServletRequest request, HttpServletResponse response)   {
+		  // data:{"id":id,"pwd":pwd}
+		  String id=request.getParameter("id");
+		  String pwd=request.getParameter("pwd");
+		  MemberVO vo=MemberDAO.isLogin(id, pwd);
+		  if(vo.getMsg().equals("OK"))
+		  {
+			  HttpSession session=request.getSession();
+			  session.setAttribute("id", vo.getId());
+			  session.setAttribute("name", vo.getName());
+			  session.setAttribute("admin", vo.getAdmin());
+		  }
+		  // ajax로 전송 
+		  try
+		  {
+			  PrintWriter out=response.getWriter();
+			  out.write(vo.getMsg());
+		  }catch(Exception ex) {}
+	  }
 	@RequestMapping("member/logout.do")
 	public void member_logout(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session=request.getSession();

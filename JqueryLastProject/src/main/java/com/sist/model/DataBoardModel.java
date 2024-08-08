@@ -86,4 +86,44 @@ public class DataBoardModel {
 		request.setAttribute("main_jsp", "../databoard/list.jsp");
 		return "../main/main.jsp";
 	}
+	
+	@RequestMapping("databoard/update_ok.do")
+	public String databoard_update_ok(HttpServletRequest request, HttpServletResponse response) {
+		return "redirect:../databoard/list.do";		//수행후 list.do를 다시 시행하도록 이동
+	}
+	
+	/*
+	 * @RequestMapping("databoard/find.do") public String
+	 * databoard_find(HttpServletRequest request, HttpServletResponse response) {
+	 * try { request.setCharacterEncoding("UTF-8"); }catch (Exception ex) { } String
+	 * fs=request.getParameter("fs"); String ss=request.getParameter("ss"); //데이터베이스
+	 * 연동 Map map=new HashMap(); map.put("ss", ss); map.put("fs", fs); //데이터 전송
+	 * List<DataBoardVO> list=DataBoardDAO.databoardFindData(map);
+	 * request.setAttribute("", list);
+	 * 
+	 * 
+	 * 
+	 * request.setAttribute("man.jsp", "../databoard/find"); return
+	 * "../main/main.jsp"; }
+	 */
+	
+	@RequestMapping("databoard/find.do")
+	public String databoard_find(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			request.setCharacterEncoding("UTF-8");
+		}catch (Exception ex) {
+			// TODO: handle exception
+		}
+		String[] fsArr=request.getParameterValues("fs");
+		String ss=request.getParameter("ss");
+		Map map=new HashMap();
+		map.put("fsArr", fsArr);
+		map.put("ss", ss);
+		//데이터베이스 연동
+		List<DataBoardVO> list=DataBoardDAO.databoardFindData(map);
+		//데이터베이스 전송
+		
+		request.setAttribute("main_jsp", "../databoard/find.jsp");
+		return "../main/main.jsp";
+	}
 }
