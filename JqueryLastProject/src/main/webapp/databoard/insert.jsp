@@ -18,7 +18,9 @@
   <main class="container clear">
    <h2 class="sectiontitle">글쓰기</h2>
    <div class="row1 row">
-    <form method=post action="../board/insert_ok.do">
+    <form method=post action="../databoard/insert_ok.do"
+     enctype="multipart/form-data"
+    >
      <table class="table">
       <tr>
        <th width=15% class="text-right">이름</th>
@@ -38,6 +40,13 @@
        <th width=15% class="text-right">내용</th>
        <td width="85%">
         <textarea rows="10" cols="50" name=content required></textarea>
+       </td>
+      </tr>
+      
+      <tr>
+       <th width=15% class="text-right">첨부파일</th>
+       <td width="85%">
+        <input type=file name=upload size=30 class="input-sm">
        </td>
       </tr>
       

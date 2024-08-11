@@ -11,16 +11,17 @@
      <typeAlias type="com.sist.vo.BoardVO" alias="BoardVO"/>
      <typeAlias type="com.sist.vo.DataBoardVO" alias="DataBoardVO"/>
      <typeAlias type="com.sist.vo.EmpVO" alias="EmpVO"/>
+     <typeAlias type="com.sist.vo.BoardReplyVO" alias="BoardReplyVO"/>
    </typeAliases>
    <!-- connection관련 : getConnection/disConnection -->
  <environments default="development">
     <environment id="development">
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
-        <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
-        <property name="username" value="hr"/>
-        <property name="password" value="happy"/>
+        <property name="driver" value="oracle.jdbc.OracleDriver"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
       </dataSource>
     </environment>
    </environments>
@@ -28,7 +29,9 @@
    <mappers>
      <mapper resource="com/sist/mapper/member-mapper.xml"/>
      <mapper resource="com/sist/mapper/board-mapper.xml"/>
-
+	 <mapper resource="com/sist/mapper/databoard-mapper.xml"/>
      <mapper resource="com/sist/mapper/emp-mapper.xml"/>
+	 <mapper resource="com/sist/mapper/reply-mapper.xml"/>
+     
    </mappers>
 </configuration>

@@ -9,11 +9,9 @@ public class BoardDAO {
   private static SqlSessionFactory ssf;
   static
   {
-	  try {
+	 
 	  ssf=CreateSqlSessionFactory.getSsf();
-	  }catch (Exception ex) {
-		  ex.printStackTrace();
-	}
+	 
 	  
   }
   /*

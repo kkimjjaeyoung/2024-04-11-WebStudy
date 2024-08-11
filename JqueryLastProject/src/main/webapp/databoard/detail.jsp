@@ -14,86 +14,164 @@
 }
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['사용단어', '단어횟수'],
-          <c:forEach var="vo" items="${list}">
-          ['<c:out value="${vo.word}"/>',     <c:out value="${vo.count}"/>],
-          </c:forEach>
-        ]);
-
-        var options = {
-          title: '사용자 데이터 분석',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-      }
-      
-      let bCheck=true
-      $(function(){
-    	  $('#delBtn').on('click',function(){
-    		  if(bCheck===true)
-    		  {
-    			  bCheck=false
-    			  $('#delBtn').text("취소") 
-    			  $('#delTr').show("slow")
-    		  }
-    		  else
-    		  {
-    			  bCheck=true
-    			  $('#delBtn').text("삭제")
-    			  $('#delTr').hide("slow")
-    		  }
-    	  })
-    	  
-    	  $('#deleteBtn').click(function(){
-    		  let pwd=$('#del_pwd').val()
-    		  // 강제 입력 
-    		  if(pwd.trim()==="")
-    		  {
-    			  $('#del_pwd').focus()
-    			  return
-    		  }
-    		  
-    		  let no=$('.del_no').text()
-    		  $.ajax({
-    			  type:'post',
-    			  url:'../board/delete.do',
-    			  data:{"no":no,"pwd":pwd},
-    			  success:function(result)
-    			  {
-    				  if(result==='yes')
-    				  {
-    					  // 비밀번호가 맞는 경우
-    					  location.href="../board/list.do"
-    				  }
-    				  else
-    				  {
-    					  // 비밀번호가 틀린 경우
-    					  alert("비밀번호가 틀립니다!!")
-    					  $('#del_pwd').val("")
-    					  $('#del_pwd').focus()
-    				  }
-    			  },
-    			  error:function(request,status,error)
-    			  {
-    				  console.log(error)
-    			  }
-    		  })
-    	  })
-      })
-    </script>
+<script type="text/javascript">
+ // Jquery => 자바스크립트 : 태그읽기  => $
+ let bCheck=true; // 전역변수 
+ $(function(){ // window.onload => 모든 프로그램은 시작점이 있다 => 일반 프로그램 : main()
+	 // Vue : mounted() , React : componentDidMount()
+	 // jquery : 서버 연결 => Ajax
+	 // Vue/React/Next/Nuxt => 서버연결 => axios
+	 // 변수 => 지역변수 
+	 $('#delBtn').click(function(){
+		 if(bCheck===true)
+		 {
+			 $('#delBtn').text("취소")
+			 $('#delTr').show() // display:none , display:''
+			 bCheck=false
+		 }
+		 else
+		 {
+			 $('#delBtn').text("수정")
+			 $('#delTr').hide() // display:none , display:''
+			 bCheck=true
+		 }
+	 })
+	 $('#deleteBtn').on('click',function(){
+		 let no=$('.del_no').text()
+		 let pwd=$('#del_pwd').val()
+		 if(pwd.trim()==="")
+		 {
+			 $('#del_pwd').focus()
+			 return
+		 }
+		 console.log("no="+no+",pwd="+pwd)
+		 $.ajax({
+			type:'post',
+			url:'../databoard/delete.do',
+			data:{"no":no,"pwd":pwd},
+			success:function(result)
+			{
+				// yes/no
+				if(result==='yes')
+				{
+					// 이동 
+					location.href="../databoard/list.do"
+				}
+				else
+				{
+				   alert("비밀번호가 틀립니다!!")
+				   $('#del_pwd').val("")
+				   $('#del_pwd').focus()
+				}
+			},
+			error:function(request,status,error)
+			{
+				console.log(error)
+			}
+		 })
+	 })
+	 
+	 // 댓글 읽기
+	 let bno=$('.del_no').text()
+	 replyList(bno)
+	 // 댓글 쓰기
+	 $('#writeBtn').click(function(){
+		 //alert("Call...")
+		 let msg=$('#msg').val()
+		 console.log(msg)
+		 let bno=$('.del_no').text()
+		 console.log(bno)
+		 if(msg.trim()==="")
+		 {
+			 $('#msg').focus()
+			 return
+		 }
+		 $.ajax({
+			 type:'post',
+			 url:'../reply/reply_insert.do',
+			 data:{"bno":bno,"msg":msg},
+			 success:function(result)
+			 {
+				 let res=result
+				 console.log(res)
+				 if(res==='OK')
+				 {
+					 replyList(bno)
+				 }
+				 
+			 },
+			 error:function(request,status,error)
+			 {
+				 console.log(error)
+			 }
+		 })
+	 })
+	 // 댓글 수정 
+	 let up=0;
+	 
+ })
+ function replyUpdate(rno){
+	
+ }
+	 // 댓글 삭제
+ function replyDelete(rno){
+		 $.ajax
+	 }
+ })
+ function replyList(bno)
+ {
+	 $.ajax({
+		 type:'post',
+		 url:'../reply/reply_list.do',
+		 data:{"bno":bno},
+		 success:function(json)
+		 {
+			 json=JSON.parse(json)
+			 let html=''
+			 
+			 json.map(function(reply){
+				 //for(let reply of json){
+				 html+='<table class="table">'
+					 html+='<tr>'
+					 html+='<td class="text-left">◑'+reply.name+'('+reply.day+')</td>'
+					 html+='<td class="text-right">'
+				      if(reply.id===reply.sessionId)
+				      {
+				    	  html+='<span class="btn btn-xs btn-success ups" onclick="replyUpdate('+reply.rno+')">수정</span>&nbsp;' 
+				    	  html+='<input type="button" >' 
+				      }
+					 html+='</td>'
+					 html+='</tr>'
+					 html+='<tr>'
+					 html+='<td colspan="2">'
+					 html+='<pre style="white-space:pre-wrap;border:none;background:white">'+reply.msg+'</pre>'
+					 html+='</td>'
+					 html+='</tr>'
+					 html+='<tr class="updates" id="m'+reply.rno+' style="display="none">'
+						 html+='<td>'
+							 html+='<textarea rows="4" cols="70" class="msg" style="float: left"></textarea>'
+							 html+='<input type=button value="댓글수정" onclick="replyUpdateData('+reply.rno+')" class="updateBtns style="width: 100px; height: 85px; background-color: green; color: black;"/>'
+						 html+='</td>'
+					 html+='</tr>'
+					 html+='</table>'
+					 
+				 //}
+			 })
+			 console.log(html)
+			 $('#reply').html(html)
+		 },
+		 error:function(request,status,error)
+		 {
+			 console.log(error)
+		 }
+	 })
+ }
+ </script>
 </head>
 <body>
 <div class="wrapper row3">
   <main class="container clear">
-   <h2 class="sectiontitle">내용보기</h2>
+   <h2 class="sectiontitle">내용 보기</h2>
    <div class="row1 row">
      <table class="table">
        <tr>
@@ -112,6 +190,16 @@
         <th width=20% class="text-center">제목</th>
         <td colspan="3">${vo.subject }</td>
        </tr>
+       <c:if test="${vo.filesize>0}">
+         <tr>
+          <th width=20% class="text-center">첨부파일</th>
+          <td colspan="3"><a href="../databoard/download.do?fn=${vo.filename }">${vo.filename }</a>(${vo.filesize}Bytes)</td>
+         </tr>
+       </c:if>
+       <%--
+            데이터베이스 : Update,Delete
+            업로드된 파일       
+        --%>
        <tr>
          <td colspan="4" class="text-left" valign="top" height="200">
           <pre style="white-space: pre-wrap;background-color: white;border:none">${vo.content }</pre>
@@ -119,9 +207,9 @@
        </tr>
        <tr>
          <td colspan="4" class="text-right">
-          <a href="../board/update.do?no=${vo.no }" class="btn btn-xs btn-success">수정</a>
+          <a href="../databoard/update.do?no=${vo.no }" class="btn btn-xs btn-success">수정</a>
           <span class="btn btn-xs btn-warning" id="delBtn">삭제</span>
-          <a href="../board/list.do" class="btn btn-xs btn-info">목록</a>
+          <a href="../databoard/list.do" class="btn btn-xs btn-info">목록</a>
          </td>
        </tr>
        <tr id="delTr" style="display: none">
@@ -131,11 +219,24 @@
          </td>
        </tr>
      </table>
+     <div style="height: 20px"></div>
+     <table class="table">
+     	<tr>
+     		<td id="reply"></td>
+     	</tr>
+     </table>
+     <c:if test="${sessionScope.id!=null }">
+     	<table class="table">
+     		<tr>
+     		<td>
+     			<textarea rows="4" cols="70" id="msg" style="float: left"></textarea>
+     			<input type=button value="댓글쓰기" style="width: 100px; height: 85px; background-color: green; color: black;"/>
+     		</td>
+     		</tr>
+     	</table>
+     </c:if> 
    </div>
-   <div style="height: 30px"></div>
-   <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
   </main>
 </div>
-
 </body>
 </html>
