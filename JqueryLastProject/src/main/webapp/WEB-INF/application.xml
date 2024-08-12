@@ -6,5 +6,6 @@
 	<bean id="databoard" class="com.sist.model.DataBoardModel"/>
 	<bean id="emp" class="com.sist.model.EmpModel"/>
 	<bean id="reply" class="com.sist.model.BoardReplyModel"/>
+	<bean id="food" class="com.sist.model.FoodModel"/>
 
 </beans>
