@@ -92,14 +92,15 @@ $(function(){
       <ul class="inline">
         <li><input type=text id=id class="input-sm" placeholder="아이디"></li>
         <li><input type=password id=pwd class="input-sm" placeholder="비밀번호"></li>
-        <li><input type=button id=logBtn class="btn-sm btn-danger" value="로그인"></li>
+        <li><input type=button id=logBtn class="btn-sm btn-danger" value="로그인" style="height:30px;width: 100px"></li>
       </ul>
       </c:if>
       <c:if test="${sessionScope.id!=null }">
       <ul class="inline">
         <li>${sessionScope.name }(${sessionScope.admin=='y'?"관리자":"일반사용자" })님 로그인되었습니다</li>
-        <li><input type=button id=logoutBtn class="btn-sm btn-success" value="로그아웃"></li>
+        <li><input type=button id=logoutBtn class="btn-sm btn-success" value="로그아웃" style="height:30px;width: 100px"></li>
       </ul>
+      
       </c:if>
     </div>
     </header>
@@ -119,8 +120,8 @@ $(function(){
       </c:if>
       <li><a class="drop" href="#">맛집</a>
         <ul>
-          <li><a href="pages/gallery.html">맛집목록</a></li>
-          <li><a href="pages/gallery.html">맛집찾기</a></li>
+          <li><a href="../food/list.do">맛집목록</a></li>
+          <li><a href="../food/find.do">맛집찾기</a></li>
           <c:if test="${sessionScope.id!=null }">
             <li><a href="pages/full-width.html">맛집예약</a></li>
           </c:if>
@@ -139,7 +140,7 @@ $(function(){
           <li><a href="pages/gallery.html">전체상품</a></li>
           <li><a href="pages/full-width.html">베스트상품</a></li>
           <li><a href="pages/sidebar-left.html">특가상품</a></li>
-          <li><a href="../boardcamp/list.do">가격비교</a></li>
+          <li><a href="pages/sidebar-left.html">가격비교</a></li>
         </ul>
       </li>
       <li><a class="drop" href="#">여행</a>
@@ -157,7 +158,7 @@ $(function(){
           <c:if test="${sessionScope.id!=null }">
            <li><a href="../replyboard/list.do">묻고답하기</a></li>
           </c:if>
-          <li><a href="../notice/notice.do">공지사항</a></li>
+          <li><a href="../notice/list.do">공지사항</a></li>
           <c:if test="${sessionScope.id!=null }">
             <li><a href="../chat/chat.do">실시간채팅</a></li>
           </c:if>

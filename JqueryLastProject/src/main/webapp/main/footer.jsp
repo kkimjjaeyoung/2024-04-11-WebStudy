@@ -10,9 +10,6 @@
 <div class="wrapper row4">
   <footer id="footer" class="clear"> 
     <div class="one_third first">
-      
-    </div>
-    <div class="one_third">
       <h6 class="title">공지사항</h6>
       <ul class="nospace linklist">
         <li><a href="#">Home Page</a></li>
@@ -33,7 +30,7 @@
       </ul>
     </div>
     <div class="one_third">
-      <h6 class="title">맛집 뉴스</h6>
+      <h6 class="title">맛집뉴스</h6>
       <ul class="nospace linklist">
         <li><a href="#">Home Page</a></li>
         <li><a href="#">Blog</a></li>
@@ -42,14 +39,12 @@
         <li><a href="#">Contact Us</a></li>
       </ul>
     </div>
-    
-  </footer>
+   </footer>
 </div>
 <div class="wrapper row5">
   <div id="copyright" class="clear"> 
-    <p class="fl_left"> &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">프로젝트 by <a target="_blank" href="#" title="1차 jps 프로젝터">D 강의장</a></p>
+    <p class="fl_right">프로젝트 by <a target="_blank" href="#" title="1차 JSP 프로젝트">D 강의장</a></p>
+    </div>
   </div>
-</div>
 </body>
 </html>
