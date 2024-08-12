@@ -1,0 +1,26 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.food-mapper">
+	<select id="foodHitTopData">
+		SELECT fno, name, poster, rownum
+		FROM (SELECT fno, name, poster)
+		FROM project_food_house ORDER BY hit DESC
+		WHERE rownum&lt;=12
+	</select>
+	<select id="foodlikeTopData">
+		SELECT fno, name, poster, rownum
+		FROM (SELECT fno, name, poster)
+		FROM project_food_house ORDER BY likecount DESC
+		WHERE rownum&lt;=12
+	</select>
+	<select id="foodjjimTopData">
+		SELECT fno, name, poster, rownum
+		FROM (SELECT fno, name, poster)
+		FROM project_food_house ORDER BY jjimcount DESC
+		WHERE rownum&lt;=12
+	</select>
+
+</mapper>
