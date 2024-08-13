@@ -11,14 +11,13 @@
      <typeAlias type="com.sist.vo.BoardVO" alias="BoardVO"/>
      <typeAlias type="com.sist.vo.DataBoardVO" alias="DataBoardVO"/>
      <typeAlias type="com.sist.vo.EmpVO" alias="EmpVO"/>
+     <typeAlias type="com.sist.vo.MusicVO" alias="MusicVO"/>
      <typeAlias type="com.sist.vo.BoardReplyVO" alias="BoardReplyVO"/>
      <typeAlias type="com.sist.vo.FoodVO" alias="FoodVO"/>
-     
+     <typeAlias type="com.sist.vo.GoodsVO" alias="GoodsVO"/>
      <typeAlias type="com.sist.vo.SeoulLocationVO" alias="SeoulLocationVO"/>
-     <typeAlias type="com.sist.vo.SeoulNatureVO" alias="SeoulNatureVO"/>
-     <typeAlias type="com.sist.vo.SeoulShopVO" alias="SeoulShopVO"/>
      <typeAlias type="com.sist.vo.AllReplyVO" alias="AllReplyVO"/>
-     
+     <typeAlias type="com.sist.vo.AllJjimVO" alias="AllJjimVO"/>
    </typeAliases>
    <!-- connection관련 : getConnection/disConnection -->
  <environments default="development">
@@ -36,12 +35,14 @@
    <mappers>
      <mapper resource="com/sist/mapper/member-mapper.xml"/>
      <mapper resource="com/sist/mapper/board-mapper.xml"/>
-	 <mapper resource="com/sist/mapper/databoard-mapper.xml"/>
+     <mapper resource="com/sist/mapper/databoard-mapper.xml"/>
      <mapper resource="com/sist/mapper/emp-mapper.xml"/>
-	 <mapper resource="com/sist/mapper/reply-mapper.xml"/>
-	 <mapper resource="com/sist/mapper/food-mapper.xml"/>
-	 
+     <mapper resource="com/sist/mapper/music-mapper.xml"/>
+     <mapper resource="com/sist/mapper/reply-mapper.xml"/>
+     <mapper resource="com/sist/mapper/food-mapper.xml"/>
+     <mapper resource="com/sist/mapper/goods-mapper.xml"/>
      <mapper resource="com/sist/mapper/seoul-mapper.xml"/>
-     <mapper resource="com/sist/mapper/allreply-mapper.xml"/>
+     <mapper resource="com/sist/mapper/allreply_mapper.xml"/>
+     <mapper resource="com/sist/mapper/alljjim-mapper.xml"/>
    </mappers>
 </configuration>
