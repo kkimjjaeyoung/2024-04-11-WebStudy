@@ -13,6 +13,12 @@
      <typeAlias type="com.sist.vo.EmpVO" alias="EmpVO"/>
      <typeAlias type="com.sist.vo.BoardReplyVO" alias="BoardReplyVO"/>
      <typeAlias type="com.sist.vo.FoodVO" alias="FoodVO"/>
+     
+     <typeAlias type="com.sist.vo.SeoulLocationVO" alias="SeoulLocationVO"/>
+     <typeAlias type="com.sist.vo.SeoulNatureVO" alias="SeoulNatureVO"/>
+     <typeAlias type="com.sist.vo.SeoulShopVO" alias="SeoulShopVO"/>
+     <typeAlias type="com.sist.vo.AllReplyVO" alias="AllReplyVO"/>
+     
    </typeAliases>
    <!-- connection관련 : getConnection/disConnection -->
  <environments default="development">
@@ -34,6 +40,8 @@
      <mapper resource="com/sist/mapper/emp-mapper.xml"/>
 	 <mapper resource="com/sist/mapper/reply-mapper.xml"/>
 	 <mapper resource="com/sist/mapper/food-mapper.xml"/>
-     
+	 
+     <mapper resource="com/sist/mapper/seoul-mapper.xml"/>
+     <mapper resource="com/sist/mapper/allreply-mapper.xml"/>
    </mappers>
 </configuration>

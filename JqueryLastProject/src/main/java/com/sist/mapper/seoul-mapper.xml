@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.seoul-mapper">
+	<select id="seoulLocationListData" resultType="SeoulLocationVO" parameterType="hashmap">
+		SELECT no, title, poster, num
+		FROM (SELECT no, title, poster, rownum as num
+		FROM (SELECT no, title, poster
+		FROM location ORDER BY no ASC))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	<select id="seoulLocationTotalPage" resultType="int">
+		SELECT CEIL(COUNT(*)/20.0) FROM location
+	</select>
+	
+		<select id="seoulNatureListData" resultType="SeoulLocationVO" parameterType="hashmap">
+		SELECT no, title, poster, num
+		FROM (SELECT no, title, poster, rownum as num
+		FROM (SELECT no, title, poster
+		FROM nature ORDER BY no ASC))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	<select id="seoulNatureTotalPage" resultType="int">
+		SELECT CEIL(COUNT(*)/20.0) FROM nature
+	</select>
+	
+		<select id="seoulShopListData" resultType="SeoulLocationVO" parameterType="hashmap">
+		SELECT no, title, poster, num
+		FROM (SELECT no, title, poster, rownum as num
+		FROM (SELECT no, title, poster
+		FROM shop ORDER BY no ASC))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	<select id="seoulShopTotalPage" resultType="int">
+		SELECT CEIL(COUNT(*)/20.0) FROM shop
+	</select>
+</mapper>

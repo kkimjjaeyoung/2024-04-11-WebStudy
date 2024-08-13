@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ CAMP_NO                                   NOT NULL NUMBER
+ CAMP_PRICE                                         NUMBER
+ CAMP_NAME                                 NOT NULL VARCHAR2(4000)
+ CAMP_ADDR                                          VARCHAR2(4000)
+ CAMP_PHONE                                         VARCHAR2(4000)
+ CAMP_CONTENT                                       CLOB
+ CAMP_IMAGE                                         VARCHAR2(4000)
+ CAMP_WIFI                                          VARCHAR2(4000)
+ CAMP_STORE                                         VARCHAR2(4000)
+ CAMP_ANIMAL                                        VARCHAR2(4000)
+-->
+<mapper namespace="com.sist.mapper.camp-mapper">
+	<select id="campListData" resultType="CampVO" parameterType="hashmap">
+		SELECT camp_no,camp_name,camp_price,camp_image,num
+		FROM (SELECT camp_no,camp_name,camp_price,camp_image,rownum as num
+		FROM (SELECT camp_no,camp_name,camp_price,camp_image
+		FROM camp ORDER BY camp_no ASC))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	<select id="campRowCount" resultType="int">
+		SELECT COUNT(*) FROM camp
+	</select>
+<!--	<select id="campDetailData" resultType="CampVO" parameterType="int">
+ 	SELECT no,name,subject,content,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,hit
+		FROM board
+		WHERE no=#{no}
+	</select> -->
+	<select id="campDetailData" resultType="CampVO" parameterType="int">
+		SELECT camp_no,camp_price,camp_name,camp_addr,camp_phone,
+		  camp_content,camp_image,camp_wifi,camp_store,camp_animal
+		FROM camp
+		WHERE camp_no=#{camp_no}
+	</select>
+</mapper>

@@ -8,4 +8,7 @@
 	<bean id="reply" class="com.sist.model.BoardReplyModel"/>
 	<bean id="food" class="com.sist.model.FoodModel"/>
 
+	<bean id="food" class="com.sist.model.SeoulModel"/>
+	<bean id="food" class="com.sist.model.AllReplyModel"/>
+
 </beans>

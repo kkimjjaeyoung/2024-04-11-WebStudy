@@ -128,7 +128,7 @@ $(function(){
           <li><a href="pages/sidebar-left.html">맛집추천</a></li>
         </ul>
       </li>
-      <li><a class="drop" href="#">레시피</a>
+      <li><a class="drop" href="#">ㅇ ㅇ</a>
         <ul>
           <li><a href="pages/gallery.html">쉐프</a></li>
           <li><a href="pages/full-width.html">레시피</a></li>
@@ -145,11 +145,10 @@ $(function(){
       </li>
       <li><a class="drop" href="#">여행</a>
         <ul>
-          <li><a href="pages/gallery.html">명소</a></li>
-          <li><a href="pages/full-width.html">자연 & 관광</a></li>
-          <li><a href="pages/sidebar-left.html">호텔</a></li>
-          <li><a href="pages/sidebar-left.html">쇼핑</a></li>
-          <li><a href="pages/sidebar-left.html">날씨</a></li>
+          <li><a href="../seoul/location.do">명소</a></li>
+          <li><a href="../seoul/nature.jsp">자연</a></li>
+          <li><a href="../seoul/shop.jsp">쇼핑</a></li>
+          <li><a href="#">날씨</a></li>
         </ul>
       </li>
       <li><a class="drop" href="#">커뮤니티</a>
