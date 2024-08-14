@@ -5,14 +5,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.sist.mapper.board-mapper">
 	<!-- 캠핑후기 리스트 -->
 	<select id="board_CampList" parameterType="hashmap" resultType="BoardVO">
-		SELECT no,subject,name,TO_CHAR(regdate,'YYYY-MM-DD') as dbday, hit, num 
-		FROM (SELECT no,subject,name,regdate,hit, rownum as num 
-		FROM (SELECT /*+ INDEX_DESC(board pd_no_pk)*/no,subject,name,regdate, hit 
+		SELECT no,subject,name,TO_CHAR(regdate,'YYYY-MM-DD') as dbday, hit, type, num
+		FROM (SELECT no,subject,name,regdate,hit, type, rownum as num 
+		FROM (SELECT /*+ INDEX_DESC(board pd_no_pk)*/no,subject,name,regdate, hit, type
 		FROM board))
-		WHERE num BETWEEN #{start} AND #{end}
+		WHERE (num BETWEEN #{start} AND #{end}) AND type=1
 	</select>
 	<select id="board_campRowCount" resultType="int">
-		SELECT COUNT(*) FROM board
+		SELECT COUNT(*) FROM board WHERE type=1
 	</select>
 	<!-- 후기 작성 -->
 	<insert id="board_CampInsert" parameterType="BoardVO">
@@ -20,7 +20,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			(SELECT NVL(MAX(no)+1,1) FROM board), #{name},#{subject},#{content},#{pwd},SYSDATE,0, #{imgname},#{imgsize}, 1
 		)
 	</insert>
-	
 	
 	<!-- 상세보기 -->
 	<!-- hit수 증가 -->
@@ -39,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 수정하기 -->
 	<update id="boardUpdateData" parameterType="BoardVO">
 		UPDATE board SET
-		name=#{name},subject=#{subject},content=#{content},	imgname=#{imgname},imgsize=#{imgsize}
+		name=#{name},subject=#{subject},content=#{content},	imgname=#{imgname},imgsize=#{imgsize}, type=1
 		WHERE no=#{no}
 	</update>
 	

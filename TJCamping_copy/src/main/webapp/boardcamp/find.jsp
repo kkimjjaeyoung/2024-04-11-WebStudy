@@ -25,7 +25,7 @@
 .row1{margin: 0px auto; width: 1080px;}
 
 .bg-breadcrumb{background: url(../img/subscribe-img.jpg)}	/* toolbar 배경 이미지 */
-.boardtitlecolor{color: white; font-size: 25px;}		/* board 메뉴 색상 */
+.boardtitlecolor{color: white;}		/* board 메뉴 색상 */
 .boardcheckbox{color: yellow;}	/* checkbox 글자 색상 */
 a.pagetagcolor{color: yellow; background: ;}
 .boardlistsytle{color: white; text-align: center;}
@@ -35,7 +35,7 @@ a.pagetagcolor{color: yellow; background: ;}
 	<!-- header start -->
 	<div class="ccontainer-fluid bg-breadcrumb">
 		<div class="container text-center py-5" style="max-width: 900px;">
-		<h1 class="display-3 mb-4" style="color: red;">캠핑장 후기 게시판</h1>
+		<h1 class="display-3 mb-4" style="color: red;">검색 결과</h1>
 		</div>
 	</div>
 	<!-- header end -->
@@ -64,7 +64,6 @@ a.pagetagcolor{color: yellow; background: ;}
 			</table>
 			<table class="table">
 				<tr>
-					<th width=10% class="text-center boardtitlecolor">번호</th>
 					<th width=50% class="text-center boardtitlecolor">제목</th>
 					<th width=15% class="text-center boardtitlecolor">이름</th>
 					<th width=15% class="text-center boardtitlecolor">작성일</th>
@@ -73,13 +72,8 @@ a.pagetagcolor{color: yellow; background: ;}
 				<c:set var="count" value="${count }"/>
 				<c:forEach var="vo" items="${list }">
 				<tr>
-					<td width=10% class="boardlistsytle">${count }</td>
 					<td width=50% style="text-align: center;">
 						<a class="boardlistsytle" href="../boardcamp/detail.do?no=${vo.no }">${vo.subject }</a>
-						&nbsp;
-						<c:if test="${today==vo.dbday }">
-							<sup><img src="../img/1.jpg" width="15px" height="15px"></sup>	<!-- 새 글 뒤에 이미지 아이콘 -->
-					 	</c:if>
 					</td>
 					<td width=15% class="text-center boardlistsytle" >${vo.name }</td>
 					<td width=15% class="text-center boardlistsytle" >${vo.dbday }</td>
@@ -91,11 +85,7 @@ a.pagetagcolor{color: yellow; background: ;}
 			<table class="table" style="text-align: center;">
 				<tr>	
 					<td class="text-right">
-						<a href="#" class="btn btn-sm btn-success pagetagcolor">이전</a>
-						&nbsp;
-							<a class="boardlistsytle">${curpage } page &nbsp; / &nbsp; ${totalpage } pages</a><!-- 이전 현재쪽 / 총쪽 다음 -->
-						&nbsp;
-						<a href="#" class="btn btn-sm btn-info pagetagcolor">다음</a>
+						<a href="../boardcamp/list.do" class="btn btn-sm btn-info pagetagcolor">목록으로</a>
 					</td>
 				</tr>
 			</table>

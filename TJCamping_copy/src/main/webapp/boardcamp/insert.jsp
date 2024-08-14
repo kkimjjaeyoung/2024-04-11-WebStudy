@@ -69,7 +69,7 @@ a.pagetagcolor{color: yellow; background: ;}
       </tr>
       
       <tr>
-       <th width=15% class="text-right">첨부파일</th>
+       <th width=15% class="text-right">이미지</th>
        <td width="85%">
         <input type=file name=upload size=30 class="input-sm">
        </td>
@@ -92,7 +92,6 @@ a.pagetagcolor{color: yellow; background: ;}
      </table> 
      </form>
    </div>
-
 </div>
 </body>
 </html>
