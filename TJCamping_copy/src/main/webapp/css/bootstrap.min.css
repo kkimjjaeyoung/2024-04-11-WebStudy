@@ -5,7 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-	--bs-blue: #0d6efd;
+	--bs-blue: rgb(13,220,110);
 	--bs-indigo: #6610f2;
 	--bs-purple: #6f42c1;
 	--bs-pink: #d63384;
@@ -14,14 +14,14 @@
 	--bs-yellow: #ffc107;
 	--bs-green: #198754;
 	--bs-teal: #20c997;
-	--bs-cyan: #0dcaf0;
+	--bs-cyan: rgb(13,240,110);
 	--bs-white: #fff;
 	--bs-gray: #6c757d;
 	--bs-gray-dark: #343a40;
 	--bs-primary: rgb(37, 103, 75);
-	--bs-secondary: #1f05e6;
+	--bs-secondary: rgb(20,210,30);
 	--bs-success: #198754;
-	--bs-info: #0dcaf0;
+	--bs-info: rgb(13,240,110);
 	--bs-warning: #ffc107;
 	--bs-danger: #dc3545;
 	--bs-light: #F2F2F2;
@@ -2270,7 +2270,7 @@ progress {
 	background-color: #fff;
 	border-color: #899abd;
 	outline: 0;
-	box-shadow: 0 0 0 .25rem rgba(19, 53, 123, .25)
+	box-shadow: 0 0 0 .25rem rgba(19, 103, 53,.25)
 }
 
 .form-control::-webkit-date-and-time-value {
@@ -3164,7 +3164,7 @@ fieldset:disabled .btn {
 .show>.btn-primary.dropdown-toggle {
 	color: #fff;
 	background-color: rgb(21,71,54);
-	border-color: #0e285c
+	border-color: rgb(16,54,40)
 }
 
 .btn-check:checked+.btn-primary:focus,
@@ -3184,22 +3184,22 @@ fieldset:disabled .btn {
 
 .btn-secondary {
 	color: #fff;
-	background-color: #1f05e6;
-	border-color: #1f05e6
+	background-color: rgb(5, 70, 31) ;
+	border-color: rgb(20,80,30)
 }
 
 .btn-secondary:hover {
 	color: #fff;
-	background-color: #1a04c4;
-	border-color: #1904b8
+	background-color: rgb(26,130,4);
+	border-color: rgb(5, 70, 31)
 }
 
 .btn-check:focus+.btn-secondary,
 .btn-secondary:focus {
 	color: #fff;
-	background-color: #1a04c4;
-	border-color: #1904b8;
-	box-shadow: 0 0 0 .25rem rgba(65, 43, 234, .5)
+	background-color: rgb(26,130,4);
+	border-color: rgb(5, 70, 31);
+	box-shadow: 0 0 0 .25rem rgba(65, 210,43,  .5)
 }
 
 .btn-check:checked+.btn-secondary,
@@ -3208,8 +3208,8 @@ fieldset:disabled .btn {
 .btn-secondary.active,
 .show>.btn-secondary.dropdown-toggle {
 	color: #fff;
-	background-color: #1904b8;
-	border-color: #1704ad
+	background-color: rgb(5, 70, 31);
+	border-color: rgb(23, 60, 13)
 }
 
 .btn-check:checked+.btn-secondary:focus,
@@ -3217,14 +3217,14 @@ fieldset:disabled .btn {
 .btn-secondary:active:focus,
 .btn-secondary.active:focus,
 .show>.btn-secondary.dropdown-toggle:focus {
-	box-shadow: 0 0 0 .25rem rgba(65, 43, 234, .5)
+	box-shadow: 0 0 0 .25rem rgba(65, 170, 43, .5)
 }
 
 .btn-secondary:disabled,
 .btn-secondary.disabled {
 	color: #fff;
-	background-color: #1f05e6;
-	border-color: #1f05e6
+	background-color: rgb(20,80,30);
+	border-color: rgb(20,80,30)
 }
 
 .btn-success {
@@ -3274,22 +3274,22 @@ fieldset:disabled .btn {
 
 .btn-info {
 	color: #000;
-	background-color: #0dcaf0;
-	border-color: #0dcaf0
+	background-color: rgb(13,240,110);
+	border-color: rgb(13,240,110);
 }
 
 .btn-info:hover {
 	color: #000;
-	background-color: #31d2f2;
-	border-color: #25cff2
+	background-color: rgb(49,242,150);
+	border-color: rgb(49,230,150)
 }
 
 .btn-check:focus+.btn-info,
 .btn-info:focus {
 	color: #000;
-	background-color: #31d2f2;
-	border-color: #25cff2;
-	box-shadow: 0 0 0 .25rem rgba(11, 172, 204, .5)
+	background-color: rgb(49,242,150);
+	border-color: rgb(49,230,150);
+	box-shadow: 0 0 0 .25rem rgba(11, 190, 130, .5)
 }
 
 .btn-check:checked+.btn-info,
@@ -3298,8 +3298,8 @@ fieldset:disabled .btn {
 .btn-info.active,
 .show>.btn-info.dropdown-toggle {
 	color: #000;
-	background-color: #3dd5f3;
-	border-color: #25cff2
+	background-color: rgb(61,220,180);
+	border-color: rgb(49,230,150)
 }
 
 .btn-check:checked+.btn-info:focus,
@@ -3307,14 +3307,14 @@ fieldset:disabled .btn {
 .btn-info:active:focus,
 .btn-info.active:focus,
 .show>.btn-info.dropdown-toggle:focus {
-	box-shadow: 0 0 0 .25rem rgba(11, 172, 204, .5)
+	box-shadow: 0 0 0 .25rem rgba(11, 190, 130, .5)
 }
 
 .btn-info:disabled,
 .btn-info.disabled {
 	color: #000;
-	background-color: #0dcaf0;
-	border-color: #0dcaf0
+	background-color: rgb(13,240,110);
+	border-color: rgb(13,240,110)
 }
 
 .btn-warning {
@@ -3538,19 +3538,19 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-secondary {
-	color: #1f05e6;
-	border-color: #1f05e6
+	color: rgb(20,80,30);
+	border-color: rgb(20,80,30)
 }
 
 .btn-outline-secondary:hover {
 	color: #fff;
-	background-color: #1f05e6;
-	border-color: #1f05e6
+	background-color: rgb(20,80,30);
+	border-color: rgb(20,80,30)
 }
 
 .btn-check:focus+.btn-outline-secondary,
 .btn-outline-secondary:focus {
-	box-shadow: 0 0 0 .25rem rgba(31, 5, 230, .5)
+	box-shadow: 0 0 0 .25rem rgba(31, 150,5,  .5)
 }
 
 .btn-check:checked+.btn-outline-secondary,
@@ -3559,8 +3559,8 @@ fieldset:disabled .btn {
 .btn-outline-secondary.active,
 .btn-outline-secondary.dropdown-toggle.show {
 	color: #fff;
-	background-color: #1f05e6;
-	border-color: #1f05e6
+	background-color: rgb(20,80,30);
+	border-color: rgb(20,80,30)
 }
 
 .btn-check:checked+.btn-outline-secondary:focus,
@@ -3568,12 +3568,12 @@ fieldset:disabled .btn {
 .btn-outline-secondary:active:focus,
 .btn-outline-secondary.active:focus,
 .btn-outline-secondary.dropdown-toggle.show:focus {
-	box-shadow: 0 0 0 .25rem rgba(31, 5, 230, .5)
+	box-shadow: 0 0 0 .25rem rgba(31, 150,5,  .5)
 }
 
 .btn-outline-secondary:disabled,
 .btn-outline-secondary.disabled {
-	color: #1f05e6;
+	color: rgb(20,80,30);
 	background-color: rgba(0, 0, 0, 0)
 }
 
@@ -3618,14 +3618,14 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-info {
-	color: #0dcaf0;
-	border-color: #0dcaf0
+	color: rgb(13,240,110);
+	border-color: rgb(13,240,110)
 }
 
 .btn-outline-info:hover {
 	color: #000;
-	background-color: #0dcaf0;
-	border-color: #0dcaf0
+	background-color: rgb(13,240,110);
+	border-color: rgb(13,240,110)
 }
 
 .btn-check:focus+.btn-outline-info,
@@ -3639,8 +3639,8 @@ fieldset:disabled .btn {
 .btn-outline-info.active,
 .btn-outline-info.dropdown-toggle.show {
 	color: #000;
-	background-color: #0dcaf0;
-	border-color: #0dcaf0
+	background-color: rgb(13,240,110);
+	border-color: rgb(13,240,110)
 }
 
 .btn-check:checked+.btn-outline-info:focus,
@@ -3653,7 +3653,7 @@ fieldset:disabled .btn {
 
 .btn-outline-info:disabled,
 .btn-outline-info.disabled {
-	color: #0dcaf0;
+	color: rgb(13,240,110);
 	background-color: rgba(0, 0, 0, 0)
 }
 
@@ -5355,13 +5355,13 @@ fieldset:disabled .btn {
 }
 
 .alert-secondary {
-	color: #13038a;
+	color: rgb(3,70,3);
 	background-color: #d2cdfa;
 	border-color: #bcb4f8
 }
 
 .alert-secondary .alert-link {
-	color: #0f026e
+	color: rgb(50,80,10)
 }
 
 .alert-success {
@@ -5759,20 +5759,20 @@ fieldset:disabled .btn {
 }
 
 .list-group-item-secondary {
-	color: #13038a;
+	color: rgb(3,70,3);
 	background-color: #d2cdfa
 }
 
 .list-group-item-secondary.list-group-item-action:hover,
 .list-group-item-secondary.list-group-item-action:focus {
-	color: #13038a;
+	color: rgb(3,70,3);
 	background-color: #bdb9e1
 }
 
 .list-group-item-secondary.list-group-item-action.active {
 	color: #fff;
-	background-color: #13038a;
-	border-color: #13038a
+	background-color: rgb(3,70,3);
+	border-color: rgb(3,70,3)
 }
 
 .list-group-item-success {
@@ -6950,12 +6950,12 @@ fieldset:disabled .btn {
 }
 
 .link-secondary {
-	color: #1f05e6
+	color: rgb(20,80,30)
 }
 
 .link-secondary:hover,
 .link-secondary:focus {
-	color: #1904b8
+	color: rgb(5, 70, 31)
 }
 
 .link-success {
@@ -6968,12 +6968,12 @@ fieldset:disabled .btn {
 }
 
 .link-info {
-	color: #0dcaf0
+	color: rgb(13,240,110)
 }
 
 .link-info:hover,
 .link-info:focus {
-	color: #3dd5f3
+	color: rgb(61,220,180)
 }
 
 .link-warning {
@@ -7371,7 +7371,7 @@ fieldset:disabled .btn {
 }
 
 .border-secondary {
-	border-color: #1f05e6 !important
+	border-color: rgb(20,80,30) !important
 }
 
 .border-success {
@@ -7379,7 +7379,7 @@ fieldset:disabled .btn {
 }
 
 .border-info {
-	border-color: #0dcaf0 !important
+	border-color: rgb(13,240,110) !important
 }
 
 .border-warning {
@@ -8348,7 +8348,7 @@ fieldset:disabled .btn {
 }
 
 .text-secondary {
-	color: #1f05e6 !important
+	color: rgb(20,80,30) !important
 }
 
 .text-success {
@@ -8356,7 +8356,7 @@ fieldset:disabled .btn {
 }
 
 .text-info {
-	color: #0dcaf0 !important
+	color: rgb(13,240,110) !important
 }
 
 .text-warning {
@@ -8404,7 +8404,7 @@ fieldset:disabled .btn {
 }
 
 .bg-secondary {
-	background-color: #1f05e6 !important
+	background-color: rgb(20,80,30) !important
 }
 
 .bg-success {
@@ -8412,7 +8412,7 @@ fieldset:disabled .btn {
 }
 
 .bg-info {
-	background-color: #0dcaf0 !important
+	background-color: rgb(13,240,110) !important
 }
 
 .bg-warning {

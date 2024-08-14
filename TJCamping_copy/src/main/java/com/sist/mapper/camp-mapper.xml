@@ -19,11 +19,13 @@
 		SELECT camp_no,camp_name,camp_price,camp_image,num
 		FROM (SELECT camp_no,camp_name,camp_price,camp_image,rownum as num
 		FROM (SELECT camp_no,camp_name,camp_price,camp_image
-		FROM camp ORDER BY camp_no ASC))
+		FROM camp
+		ORDER BY camp_no ASC))
 		WHERE num BETWEEN #{start} AND #{end}
 	</select>
-	<select id="campRowCount" resultType="int">
-		SELECT COUNT(*) FROM camp
+	<select id="campTotalPage" resultType="int">
+		SELECT CEIL(COUNT(*)/12.0)
+		FROM camp
 	</select>
 <!--	<select id="campDetailData" resultType="CampVO" parameterType="int">
  	SELECT no,name,subject,content,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,hit
@@ -35,5 +37,11 @@
 		  camp_content,camp_image,camp_wifi,camp_store,camp_animal
 		FROM camp
 		WHERE camp_no=#{camp_no}
+	</select>
+	<select id="campNoTopData" resultType="CampVO">
+		SELECT camp_no,camp_name,camp_image,rownum
+		FROM (SELECT camp_no,camp_name,camp_image
+		FROM camp ORDER BY camp_no DESC)
+		WHERE rownum&lt;=16
 	</select>
 </mapper>

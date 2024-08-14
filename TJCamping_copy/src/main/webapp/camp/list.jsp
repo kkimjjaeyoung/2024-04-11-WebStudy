@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
     <head>
         <meta charset="utf-8">
-        <title>Travela - Tourism Website Template</title>
+        <title></title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -29,9 +30,55 @@
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <style>
         .bg-breadcrumb {
     background-image: url('camp_list.jpg');
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination a {
+  display: block;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.pagination a:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination .current a {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
 }
         </style>
     </head>
@@ -40,7 +87,7 @@
 
         
 
-        
+      
 
         
 
@@ -55,198 +102,71 @@
         <!-- Header End -->
 
         <!-- Explore Tour Start -->
-        <div class="container-fluid ExploreTour py-5">
-            <div class="container py-5">
-                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                    <h5 class="section-title px-3">Explore Tour</h5>
-                    <h1 class="mb-4">The World</h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
-                    </p>
-                </div>
-                <div class="tab-class text-center">
-                    <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
-                        <li class="nav-item">
-                            <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#NationalTab-1">
-                                <span class="text-dark" style="width: 250px;">National Tour Category</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#InternationalTab-2">
-                                <span class="text-dark" style="width: 250px;">International tour Category</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="NationalTab-1" class="tab-pane fade show p-0 active">
-                            <div class="row g-4">
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="national-item">
-                                        <img src="img/explore-tour-1.jpg" class="img-fluid w-100 rounded" alt="Image">
-                                        <div class="national-content">
-                                            <div class="national-info">
-                                                <h5 class="text-white text-uppercase mb-2">Weekend Tour</h5>
-                                                <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="national-plus-icon">
-                                            <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="national-item">
-                                        <img src="img/explore-tour-2.jpg" class="img-fluid w-100 rounded" alt="Image">
-                                        <div class="national-content">
-                                            <div class="national-info">
-                                                <h5 class="text-white text-uppercase mb-2">Holiday Tour</h5>
-                                                <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="national-plus-icon">
-                                            <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="national-item">
-                                        <img src="img/explore-tour-3.jpg" class="img-fluid w-100 rounded" alt="Image">
-                                        <div class="national-content">
-                                            <div class="national-info">
-                                                <h5 class="text-white text-uppercase mb-2">Road Trip</h5>
-                                                <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="tour-offer bg-info">15% Off</div>
-                                        <div class="national-plus-icon">
-                                            <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="national-item">
-                                        <img src="img/explore-tour-4.jpg" class="img-fluid w-100 rounded" alt="Image">
-                                        <div class="national-content">
-                                            <div class="national-info">
-                                                <h5 class="text-white text-uppercase mb-2">Historical Trip</h5>
-                                                <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="national-plus-icon">
-                                            <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="national-item">
-                                        <img src="img/explore-tour-5.jpg" class="img-fluid w-100 rounded" alt="Image">
-                                        <div class="national-content">
-                                            <div class="national-info">
-                                                <h5 class="text-white text-uppercase mb-2">Family Tour</h5>
-                                                <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="tour-offer bg-warning">50% Off</div>
-                                        <div class="national-plus-icon">
-                                            <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="national-item">
-                                        <img src="img/explore-tour-6.jpg" class="img-fluid w-100 rounded" alt="Image">
-                                        <div class="national-content">
-                                            <div class="national-info">
-                                                <h5 class="text-white text-uppercase mb-2">Beach Tour</h5>
-                                                <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="national-plus-icon">
-                                            <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="InternationalTab-2" class="tab-pane fade show p-0">
-                            <div class="InternationalTour-carousel owl-carousel">
-                                <div class="international-item">
-                                    <img src="img/explore-tour-1.jpg" class="img-fluid w-100 rounded" alt="Image">
-                                    <div class="international-content">
-                                        <div class="international-info">
-                                            <h5 class="text-white text-uppercase mb-2">Australia</h5>
-                                            <a href="#" class="btn-hover text-white me-4"><i class="fas fa-map-marker-alt me-1"></i> 8 Cities</a>
-                                            <a href="#" class="btn-hover text-white"><i class="fa fa-eye ms-2"></i> <span>143+ Tour Places</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="tour-offer bg-success">30% Off</div>
-                                    <div class="international-plus-icon">
-                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                    </div>
-                                </div>
-                                <div class="international-item">
-                                    <img src="img/explore-tour-2.jpg" class="img-fluid w-100 rounded" alt="Image">
-                                    <div class="international-content">
-                                        <div class="international-info">
-                                            <h5 class="text-white text-uppercase mb-2">Germany</h5>
-                                            <a href="#" class="btn-hover text-white me-4"><i class="fas fa-map-marker-alt me-1"></i> 12 Cities</a>
-                                            <a href="#" class="btn-hover text-white"><i class="fa fa-eye ms-2"></i> <span>21+ Tour Places</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="international-plus-icon">
-                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                    </div>
-                                </div>
-                                <div class="international-item">
-                                    <img src="img/explore-tour-3.jpg" class="img-fluid w-100 rounded" alt="Image">
-                                    <div class="international-content">
-                                        <div class="tour-offer bg-warning">45% Off</div>
-                                        <div class="international-info">
-                                            <h5 class="text-white text-uppercase mb-2">Spain</h5>
-                                            <a href="#" class="btn-hover text-white me-4"><i class="fas fa-map-marker-alt me-1"></i> 9 Cities</a>
-                                            <a href="#" class="btn-hover text-white"><i class="fa fa-eye ms-2"></i> <span>133+ Tour Places</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="international-plus-icon">
-                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                    </div>
-                                </div>
-                                <div class="international-item">
-                                    <img src="img/explore-tour-4.jpg" class="img-fluid w-100 rounded" alt="Image">
-                                    <div class="international-content">
-                                        <div class="international-info">
-                                            <h5 class="text-white text-uppercase mb-2">Japan</h5>
-                                            <a href="#" class="btn-hover text-white me-4"><i class="fas fa-map-marker-alt me-1"></i> 8 Cities</a>
-                                            <a href="#" class="btn-hover text-white"><i class="fa fa-eye ms-2"></i> <span>137+ Tour Places</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="international-plus-icon">
-                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                    </div>
-                                </div>
-                                <div class="international-item">
-                                    <img src="img/explore-tour-5.jpg" class="img-fluid w-100 rounded" alt="Image">
-                                    <div class="international-content">
-                                        <div class="tour-offer bg-info">70% Off</div>
-                                        <div class="international-info">
-                                            <h5 class="text-white text-uppercase mb-2">London</h5>
-                                            <a href="#" class="btn-hover text-white me-4"><i class="fas fa-map-marker-alt me-1"></i> 17 Cities</a>
-                                            <a href="#" class="btn-hover text-white"><i class="fa fa-eye ms-2"></i> <span>26+ Tour Places</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="international-plus-icon">
-                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Explore Tour Start -->
-
         
 
+                
+        
+        <div class="container-fluid destination py-5">
+		<div class="container py-5">
+			<div class="mx-auto text-center mb-5" style="max-width: 900px;">
+				<h5 class="section-title px-3">campsite</h5>
+				<h1 class="mb-0">캠핑장</h1>
+			</div>
+			<div class="tab-class text-center">
+				<div class="tab-content">
+					<div id="tab-1" class="tab-pane fade show p-0 active">
+						
+							<div class="flexslider carousel basiccarousel btmspace-80"> <!-- col-xl-8 -->
+							<div class="slides"><!-- <div class="row g-4"> -->
+					<div class="row g-4">
+								<c:forEach var="vo" items="${list }">
+									<div class="col-lg-3">
+										<div class="destination-img">
+										<!-- class="img-fluid rounded w-100" -->
+											<img class="rounded w-100" style="width:300px;height:240px;object-fit:cover"
+												src="${vo.camp_image }" alt="${vo.camp_name}">
+											<div class="destination-overlay p-4">
+												<h4 class="mb-2 mt-3"
+								  style="color:white;background-color:rgb(37,105,73);font-size:23px;font-family:'휴먼모음T'">
+												  ${vo.camp_name }</h4>
+												<a href="../camp/detail.do?camp_no=${vo.camp_no }"
+			class="btn-hover" style="color:white;background-color:rgb(37,105,73);font-size:15px;font-family:'휴먼모음T'">자세히 보기
+													<i class="fa fa-arrow-right ms-2"></i>
+												</a>
+											</div>
+											</div>
+											</div>
+										</c:forEach>
+										</div>
+									
+									</div>
+							
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+        <div class="wrapper row3">
+	  <main class="container clear"> 
+<nav class="pagination">
+        <ul>
+        <c:if test="${startPage>1 }">
+          <a href="../camp/list.do?page=${startPage-1 }">&laquo; 이전</a>
+        </c:if>
+        <c:forEach var="i" begin="${startPage }" end="${endPage }">
+          <li ${curpage==i?"class=current":"" }><a href="../camp/list.do?page=${i }">${i }</a></li>
+        </c:forEach>
+        <c:if test="${endPage<totalpage }">
+          <a href="../camp/list.do?page=${endPage+1 }">다음 &raquo;</a>
+        </c:if>
+        </ul>
+      </nav>
+      </main>
+      </div>
+      
+      <div style="height:30px"></div>
         
         
         <!-- Copyright Start -->
@@ -282,6 +202,9 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        
+        
+        
     </body>
 
 </html>

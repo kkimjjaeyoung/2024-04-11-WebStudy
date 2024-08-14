@@ -104,11 +104,13 @@ $(function(){
 			   	</c:if> 
 			   	<c:if test="${sessionScope.id!=null }">
 				      <ul class="inline">
-				      	<li style="display: inline-block; margin-top:25px">${sessionScope.name }(${sessionScope.admin=='y'?"관리자":"일반 사용자" })님 로그인되었습니다</li>
+				      	<li style="display: inline-block; margin-top:25px;color:white">${sessionScope.name }(${sessionScope.admin=='y'?"관리자":"일반 사용자" })님 로그인되었습니다</li>
 				        <li style="display: inline-block; margin-top:25px"><input type="button" id="logoutBtn" class="btn-sm btn-success" value="로그아웃">&nbsp;&nbsp;</li>
 				      </ul>
-			    	</c:if> 
+			    	</c:if>
+			    	<c:if test="${sessionScope.id==null }">
                         <a href="../member/join.do"><small class="me-3 text-light"><i class="fa fa-user me-2" style="margin-top:13px"></i>회원가입</small></a>
+                    </c:if>
                         <a href="#"><small class="me-3 text-light"><i class="fa fa-user me-2" style="margin-top:13px"></i>고객센터</small></a>
                         <c:if test="${sessionScope.id!=null }">
        			<c:if test="${sessionScope.admin=='n' }">
@@ -127,7 +129,7 @@ $(function(){
         <!-- Navbar & Hero Start -->
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
+                <a href="../main/main.do" class="navbar-brand p-0">
                     <h1 class="m-0"><i class="fa fa-map-marker-alt me-3"></i>&nbsp;&nbsp;TJ Camping</h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
@@ -139,7 +141,7 @@ $(function(){
                         <a href="../main/main.do" class="nav-item nav-link active">&nbsp;&nbsp;&nbsp;홈&nbsp;&nbsp;&nbsp;</a>
                         
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <a href="../camp/list.do" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             &nbsp;&nbsp;&nbsp;캠핑장&nbsp;&nbsp;&nbsp;</a>
                             <div class="dropdown-menu m-0">
                                 <a href="../camp/list.do" class="dropdown-item">캠핑장 목록</a>
@@ -153,11 +155,11 @@ $(function(){
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             &nbsp;&nbsp;&nbsp;캠핑용품&nbsp;&nbsp;&nbsp;</a>
                             <div class="dropdown-menu m-0">
-                                <a href="#" class="dropdown-item">캠핑용품 목록</a>
-                                <a href="#" class="dropdown-item">브랜드별 캠핑용품</a>
-                                <a href="#" class="dropdown-item">베스트 상품 캠핑용품</a>
-                                <a href="#" class="dropdown-item">신상품 캠핑용품</a>
-                                <a href="#" class="dropdown-item">세일 상품 캠핑용품</a>
+                                <a href="../campgoods/list.do" class="dropdown-item">전체상품</a>
+                                <a href="../campgoods/list.do?gno=2" class="dropdown-item">브랜드별 상품</a>
+                                <a href="../campgoods/list.do?gno=3" class="dropdown-item">베스트상품</a>
+                                <a href="../campgoods/list.do?gno=4" class="dropdown-item">신상품</a>
+                                <a href="../campgoods/list.do?gno=5" class="dropdown-item">세일상품</a>
                             </div>
                         </div>
                         
@@ -165,8 +167,8 @@ $(function(){
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             &nbsp;&nbsp;&nbsp;레시피&맛집&nbsp;&nbsp;&nbsp;</a>
                             <div class="dropdown-menu m-0">
-                                <a href="#" class="dropdown-item">레시피 목록</a>
-                                <a href="#" class="dropdown-item">맛집 목록</a>
+                                <a href="../recipe/list.do" class="dropdown-item">레시피 목록</a>
+                                <a href="../food/list.do" class="dropdown-item">맛집 목록</a>
                             </div>
                         </div>
                         

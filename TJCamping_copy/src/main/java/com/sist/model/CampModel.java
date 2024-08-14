@@ -21,23 +21,28 @@ public class CampModel {
 		if(page==null)
 			page="1";
 		int curpage=Integer.parseInt(page);
+		
+		Map map=new HashMap();
 		int rowSize=12;
 		int start=(rowSize*curpage)-(rowSize-1);
 		int end=rowSize*curpage;
-		
-		Map map=new HashMap();
 		map.put("start", start);
 		map.put("end", end);
-		List<CampVO> list=CampDAO.campListData(map);
 		
-		int count=CampDAO.campRowCount();
-		int totalpage=(int)(Math.ceil(count/10.0));
-		count=count-((rowSize*curpage)-rowSize);
+		List<CampVO> list=CampDAO.campListData(map);
+		int totalpage=CampDAO.campTotalPage();
+		
+		final int BLOCK=10;
+		int startPage=((curpage-1)/BLOCK*BLOCK)+1;
+		int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
+		if(endPage>totalpage)
+			endPage=totalpage;
 		
 		request.setAttribute("list", list);
-		request.setAttribute("count", count);
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
 		
 		request.setAttribute("main_jsp", "../camp/list.jsp");
 		return "../main/main.jsp";
@@ -47,6 +52,7 @@ public class CampModel {
 	public String camp_detail(HttpServletRequest request,HttpServletResponse response)
 	{
 		String camp_no=request.getParameter("camp_no");
+		
 		CampVO vo=CampDAO.campDetailData(Integer.parseInt(camp_no));
 		
 		request.setAttribute("vo", vo);

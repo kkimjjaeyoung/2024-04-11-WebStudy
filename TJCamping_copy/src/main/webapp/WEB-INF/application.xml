@@ -3,5 +3,11 @@
    <bean id="main" class="com.sist.model.MainModel"/>
    <bean id="camp" class="com.sist.model.CampModel"/>
    <bean id="member" class="com.sist.model.MemberModel"/>
+   <!--  <bean id="boardcamp" class="com.sist.model.Board_CampModel"/> -->
+   <bean id="food" class="com.sist.model.FoodModel"/>
+   <bean id="goods" class="com.sist.model.CampGoodsModel"/>
+   <bean id="recipe" class="com.sist.model.RecipeModel"/>
+   <bean id="alljjim" class="com.sist.model.AllJjimModel"/>
    <bean id="boardcamp" class="com.sist.model.Board_Model"/>
+   
 </beans> 

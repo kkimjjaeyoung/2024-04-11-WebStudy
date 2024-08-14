@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.recipe-mapper">
+
+  <select id="recipeListCount" resultType="int">
+    SELECT COUNT(*) FROM recipe
+  </select>
+  <!-- 맛집 목록 출력 -->
+  <select id="recipeListData" resultType="RecipeVO" parameterType="hashmap">
+    SELECT no,title,poster, chef, info3, num
+    FROM (SELECT no,title,poster, chef, info3, rownum as num 
+    FROM (SELECT no,title,poster, chef, info3
+    FROM recipe))
+    WHERE num BETWEEN #{start} AND #{end}
+  </select>
+  <select id="recipeTotalPage" resultType="int">
+    SELECT CEIL(COUNT(*)/20.0) FROM recipe
+  </select>
+  <!-- 맛집 상세보기 -->
+  <update id="recipeHitIncrement" parameterType="int">
+    UPDATE recipe SET
+    hit=hit+1
+    WHERE no=#{no}
+  </update>
+ 
+  <select id="recipeDetailData" resultType="RecipeVO" parameterType="int">
+    SELECT no,title,poster,chef, info3
+    FROM recipe
+    WHERE no=#{no}
+  </select>
+
+  
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.campGoods-mapper">
+	<select id="campGoodsListData" resultType="CampGoodsVO" parameterType="java.util.Map">
+		SELECT cno,name,price,poster,num
+		FROM (SELECT cno,name,price,poster,rownum as num
+		FROM (SELECT cno,name,price,poster
+		FROM ${table_name} ORDER BY cno ASC))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	<select id="campGoodsTotalPage" resultType="int" parameterType="java.util.Map">
+		SELECT CEIL(COUNT(*)/20.0) FROM ${table_name}
+	</select>
+	<update id="campGoodsHitIncrement" parameterType="java.util.Map">
+		UPDATE ${table_name} SET 
+		hit=hit+1
+		WHERE cno=#{cno}
+	</update>
+	<select id="campGoodsDetailData" parameterType="java.util.Map" resultType="CampGoodsVO">
+		SELECT * FROM ${table_name}
+		WHERE cno=#{cno}
+	</select>
+</mapper>

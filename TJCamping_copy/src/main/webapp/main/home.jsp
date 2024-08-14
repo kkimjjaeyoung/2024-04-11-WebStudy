@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -207,7 +208,7 @@
 									<div class="national-content">
 										<div class="national-info">
 											<h3 class="text-white text-uppercase mb-2">캠핑장 예약 </h3>
-											<a href="#" class="btn-hover text-white">바로가기 <i
+											<a href="../camp/list.do" class="btn-hover text-white">바로가기 <i
 												class="fa fa-arrow-right ms-2"></i></a>
 										</div>
 									</div>
@@ -396,53 +397,22 @@
 				<h1 class="mb-0">캠핑장</h1>
 			</div>
 			<div class="tab-class text-center">
-				<ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
-					<li class="nav-item"><a
-						class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active"
-						data-bs-toggle="pill" href="#tab-1"> <span class="text-dark"
-							style="width: 150px;">전국</span>
-					</a></li>
-					<li class="nav-item"><a
-						class="d-flex py-2 mx-3 border border-primary bg-light rounded-pill"
-						data-bs-toggle="pill" href="#tab-2"> <span class="text-dark"
-							style="width: 150px;">서울 / 경기</span>
-					</a></li>
-					<li class="nav-item"><a
-						class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill"
-						data-bs-toggle="pill" href="#tab-3"> <span class="text-dark"
-							style="width: 150px;">강원도</span>
-					</a></li>
-					<li class="nav-item"><a
-						class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill"
-						data-bs-toggle="pill" href="#tab-4"> <span class="text-dark"
-							style="width: 150px;">충청도</span>
-					</a></li>
-					<li class="nav-item"><a
-						class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill"
-						data-bs-toggle="pill" href="#tab-5"> <span class="text-dark"
-							style="width: 150px;">경상도</span>
-					</a></li>
-					<li class="nav-item"><a
-						class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill"
-						data-bs-toggle="pill" href="#tab-6"> <span class="text-dark"
-							style="width: 150px;">제주도</span>
-					</a></li>
-				</ul>
 				<div class="tab-content">
 					<div id="tab-1" class="tab-pane fade show p-0 active">
-						<div class="row g-4">
-							<div class="col-xl-8">
-								<div class="row g-4">
-									<div class="col-lg-6">
+						
+							<div class="flexslider carousel basiccarousel btmspace-80"> <!-- col-xl-8 -->
+							<div class="slides"><!-- <div class="row g-4"> -->
+					<div class="row g-4">
+								<c:forEach var="cvo" items="${cList }">
+									<div class="col-lg-3">
 										<div class="destination-img">
-											<img class="img-fluid rounded w-100"
-												src="../img/destination-1.jpg" alt="">
+										<!-- class="img-fluid rounded w-100" -->
+											<img class="rounded w-100" style="width:250px;height:200px;object-fit:cover"
+												src="${cvo.camp_image }" alt="${cvo.camp_name}">
 											<div class="destination-overlay p-4">
-												<a href="#"
-													class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-													Photos</a>
-												<h4 class="text-white mb-2 mt-3">New York City</h4>
-												<a href="#" class="btn-hover text-white">View All Place
+												<h4 class="text-white mb-2 mt-3">${cvo.camp_name }</h4>
+												<a href="../camp/detail.do?camp_no=${cvo.camp_no }"
+													class="btn-hover text-white">자세히 보기
 													<i class="fa fa-arrow-right ms-2"></i>
 												</a>
 											</div>
@@ -450,345 +420,13 @@
 												<a href="../img/destination-1.jpg"
 													data-lightbox="destination-1"><i
 													class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-											</div>
+											</div></div></div>
+										</c:forEach>
 										</div>
+									
 									</div>
-									<div class="col-lg-6">
-										<div class="destination-img">
-											<img class="img-fluid rounded w-100"
-												src="../img/destination-2.jpg" alt="">
-											<div class="destination-overlay p-4">
-												<a href="#"
-													class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-													Photos</a>
-												<h4 class="text-white mb-2 mt-3">Las vegas</h4>
-												<a href="#" class="btn-hover text-white">View All Place
-													<i class="fa fa-arrow-right ms-2"></i>
-												</a>
-											</div>
-											<div class="search-icon">
-												<a href="../img/destination-2.jpg"
-													data-lightbox="destination-2"><i
-													class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-6">
-										<div class="destination-img">
-											<img class="img-fluid rounded w-100"
-												src="../img/destination-7.jpg" alt="">
-											<div class="destination-overlay p-4">
-												<a href="#"
-													class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-													Photos</a>
-												<h4 class="text-white mb-2 mt-3">Los angelas</h4>
-												<a href="#" class="btn-hover text-white">View All Place
-													<i class="fa fa-arrow-right ms-2"></i>
-												</a>
-											</div>
-											<div class="search-icon">
-												<a href="../img/destination-7.jpg"
-													data-lightbox="destination-7"><i
-													class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-6">
-										<div class="destination-img">
-											<img class="img-fluid rounded w-100"
-												src="../img/destination-8.jpg" alt="">
-											<div class="destination-overlay p-4">
-												<a href="#"
-													class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-													Photos</a>
-												<h4 class="text-white mb-2 mt-3">Los angelas</h4>
-												<a href="#" class="btn-hover text-white">View All Place
-													<i class="fa fa-arrow-right ms-2"></i>
-												</a>
-											</div>
-											<div class="search-icon">
-												<a href="../img/destination-8.jpg"
-													data-lightbox="destination-8"><i
-													class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
+							
 							</div>
-							<div class="col-xl-4">
-								<div class="destination-img h-100">
-									<img class="img-fluid rounded w-100 h-100"
-										src="../img/destination-9.jpg"
-										style="object-fit: cover; min-height: 300px;" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">San francisco</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/destination-9.jpg" data-lightbox="destination-4"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/destination-4.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">Los angelas</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/destination-4.jpg" data-lightbox="destination-4"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/destination-5.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">Los angelas</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/destination-5.jpg" data-lightbox="destination-5"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/destination-6.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">Los angelas</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/destination-6.jpg" data-lightbox="destination-6"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="tab-2" class="tab-pane fade show p-0">
-						<div class="row g-4">
-							<div class="col-lg-6">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/destination-5.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">San francisco</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/destination-5.jpg" data-lightbox="destination-5"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/destination-6.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">San francisco</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/destination-6.jpg" data-lightbox="destination-6"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="tab-3" class="tab-pane fade show p-0">
-						<div class="row g-4">
-							<div class="col-lg-6">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/destination-5.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">San francisco</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/destination-5.jpg" data-lightbox="destination-5"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/destination-6.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">San francisco</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/destination-6.jpg" data-lightbox="destination-6"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="tab-4" class="tab-pane fade show p-0">
-						<div class="row g-4">
-							<div class="col-lg-6">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/destination-5.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">San francisco</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/destination-5.jpg" data-lightbox="destination-5"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/destination-6.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">San francisco</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/destination-6.jpg" data-lightbox="destination-6"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="tab-5" class="tab-pane fade show p-0">
-						<div class="row g-4">
-							<div class="col-lg-6">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/destination-5.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">San francisco</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/destination-5.jpg" data-lightbox="destination-5"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/destination-6.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">San francisco</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/destination-6.jpg" data-lightbox="destination-6"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="tab-6" class="tab-pane fade show p-0">
-						<div class="row g-4">
-							<div class="col-lg-6">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/destination-5.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">San francisco</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/destination-5.jpg" data-lightbox="destination-5"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/destination-6.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">San francisco</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/destination-6.jpg" data-lightbox="destination-6"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -986,163 +624,31 @@
 				<div class="tab-content">
 					<div id="tab-1" class="tab-pane fade show p-0 active">
 						<div class="row g-4">
-							<div class="col-xl-8">
-								<div class="row g-4">
-									<div class="col-lg-6">
-										<div class="destination-img">
-											<img class="img-fluid rounded w-100"
-												src="../img/1.jpg" alt="">
-											<div class="destination-overlay p-4">
-												<a href="#"
-													class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-													Photos</a>
-												<h4 class="text-white mb-2 mt-3">New York City</h4>
-												<a href="#" class="btn-hover text-white">View All Place
-													<i class="fa fa-arrow-right ms-2"></i>
-												</a>
-											</div>
-											<div class="search-icon">
-												<a href="../img/1.jpg"
-													data-lightbox="destination-1"><i
-													class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-6">
-										<div class="destination-img">
-											<img class="img-fluid rounded w-100"
-												src="../img/2.jpg" alt="">
-											<div class="destination-overlay p-4">
-												<a href="#"
-													class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-													Photos</a>
-												<h4 class="text-white mb-2 mt-3">Las vegas</h4>
-												<a href="#" class="btn-hover text-white">View All Place
-													<i class="fa fa-arrow-right ms-2"></i>
-												</a>
-											</div>
-											<div class="search-icon">
-												<a href="../img/2.jpg"
-													data-lightbox="destination-2"><i
-													class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-6">
-										<div class="destination-img">
-											<img class="img-fluid rounded w-100"
-												src="../img/7.jpg" alt="">
-											<div class="destination-overlay p-4">
-												<a href="#"
-													class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-													Photos</a>
-												<h4 class="text-white mb-2 mt-3">Los angelas</h4>
-												<a href="#" class="btn-hover text-white">View All Place
-													<i class="fa fa-arrow-right ms-2"></i>
-												</a>
-											</div>
-											<div class="search-icon">
-												<a href="../img/7.jpg"
-													data-lightbox="destination-7"><i
-													class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-6">
-										<div class="destination-img">
-											<img class="img-fluid rounded w-100"
-												src="../img/8.jpg" alt="">
-											<div class="destination-overlay p-4">
-												<a href="#"
-													class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-													Photos</a>
-												<h4 class="text-white mb-2 mt-3">Los angelas</h4>
-												<a href="#" class="btn-hover text-white">View All Place
-													<i class="fa fa-arrow-right ms-2"></i>
-												</a>
-											</div>
-											<div class="search-icon">
-												<a href="../img/8.jpg"
-													data-lightbox="destination-8"><i
-													class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<c:forEach var="fvo" items="${likeList}" varStatus="status"> <!-- ---------------------------------------------------------------------------- -->
+							<c:if test="${status.index % 3 == 0}">
+					            <div class="row">
+					        </c:if>
 							<div class="col-xl-4">
 								<div class="destination-img h-100">
-									<img class="img-fluid rounded w-100 h-100"
-										src="../img/9.jpg"
-										style="object-fit: cover; min-height: 300px;" alt="">
+									<img class="img-fluid rounded w-150 h-150"
+										src="http://menupan.com${fvo.poster }"
+										style="object-fit: cover; min-height: 400px;" alt="">
 									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">San francisco</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
+										<h4 class="text-white mb-2 mt-3 " >${fvo.name }</h4>
+										<a href="#" class="btn-hover text-white ">바로가기<i
+											class="fa fa-arrow-left ms-2"></i></a>
 									</div>
 									<div class="search-icon">
-										<a href="../img/9.jpg" data-lightbox="destination-4"><i
+										<a href="http://menupan.com${fvo.poster }" data-lightbox="destination-4"><i
 											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-4">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/4.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">Los angelas</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/4.jpg" data-lightbox="destination-4"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/5.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">Los angelas</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/5.jpg" data-lightbox="destination-5"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="destination-img">
-									<img class="img-fluid rounded w-100"
-										src="../img/6.jpg" alt="">
-									<div class="destination-overlay p-4">
-										<a href="#"
-											class="btn btn-primary text-white rounded-pill border py-2 px-3">20
-											Photos</a>
-										<h4 class="text-white mb-2 mt-3">Los angelas</h4>
-										<a href="#" class="btn-hover text-white">View All Place <i
-											class="fa fa-arrow-right ms-2"></i></a>
-									</div>
-									<div class="search-icon">
-										<a href="../img/6.jpg" data-lightbox="destination-6"><i
-											class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-									</div>
-								</div>
-							</div>
+							<c:if test="${status.index % 3 == 2 || status.last}">
+							<h2></h2>
+					            </div>
+					        </c:if>
+						</c:forEach> <!-- ---------------------------------------------------------------------------- -->
 						</div>
 					</div>
 					<div id="tab-2" class="tab-pane fade show p-0">
@@ -1350,7 +856,6 @@
 		</div>
 	</div>
 	<!-- 맛집 추천 End -->
-
 	
 	
 	<!-- 레시피 Start -->
