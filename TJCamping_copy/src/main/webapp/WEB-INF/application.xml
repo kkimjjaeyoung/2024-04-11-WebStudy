@@ -9,5 +9,6 @@
    <bean id="recipe" class="com.sist.model.RecipeModel"/>
    <bean id="alljjim" class="com.sist.model.AllJjimModel"/>
    <bean id="boardcamp" class="com.sist.model.Board_Model"/>
+   <bean id="boardcamp" class="com.sist.model.BoardReply_Model"/>
    
 </beans> 

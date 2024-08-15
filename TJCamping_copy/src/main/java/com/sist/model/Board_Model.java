@@ -87,6 +87,8 @@ public class Board_Model {
 		}
 		return "redirect:../boardcamp/list.do";
 	}
+	
+	//게시글 상세보기
 	  @RequestMapping("boardcamp/detail.do")
 	  public String board_detail(HttpServletRequest request,HttpServletResponse response){
 		  String no=request.getParameter("no");
@@ -123,6 +125,7 @@ public class Board_Model {
 		  }catch(Exception ex){}
 	  }
 
+	  //게시글 삭제
 	  @RequestMapping("boardcamp/delete.do") // => if문 동일 
 	  public void board_delete(HttpServletRequest request,HttpServletResponse response)
 	  {
@@ -179,10 +182,8 @@ public class Board_Model {
 	  }
 	  
 	  @RequestMapping("boardcamp/update_ok.do")
-	  public String board_update_ok(HttpServletRequest request,HttpServletResponse response)
-	  {
-		  try
-		  { 
+	  public String board_update_ok(HttpServletRequest request,HttpServletResponse response){
+		  try{ 
 			  
 			  request.setCharacterEncoding("UTF-8");
 			  String path="c:\\project_upload";
@@ -200,8 +201,7 @@ public class Board_Model {
 			  String no=mr.getParameter("no");
 			  
 			  BoardVO dvo=BoardDAO.boardImgInfoData(Integer.parseInt(no));
-			  if(dvo.getImgsize()>0)
-			  {
+			  if(dvo.getImgsize()>0){
 				  File file=new File("c:\\project_upload\\"+dvo.getImgname());
 				  file.delete();
 			  }

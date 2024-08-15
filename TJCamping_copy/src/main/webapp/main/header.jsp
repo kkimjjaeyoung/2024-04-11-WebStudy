@@ -177,7 +177,7 @@ $(function(){
                             &nbsp;&nbsp;&nbsp;커뮤니티&nbsp;&nbsp;&nbsp;</a>
                             <div class="dropdown-menu m-0">
                                 <a href="../boardcamp/list.do" class="dropdown-item">캠핑장 후기</a>
-                                <a href="#" class="dropdown-item">캠핑용품 후기</a>
+                                <a href="../boardgoods/list.do" class="dropdown-item">캠핑용품 후기</a>
                             </div>
                         </div>
                     </div>
