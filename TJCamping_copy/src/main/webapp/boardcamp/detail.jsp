@@ -84,7 +84,6 @@ $(function(){
 	 })
 
 	 
-/*	 
 	// 댓글 읽기
 	 let bno=$('.del_no').text()
 	 replyList(bno)
@@ -218,7 +217,6 @@ $(function(){
 		 }
 	 })
  }
- */
 
 </script>
 </head>
@@ -282,7 +280,6 @@ $(function(){
          </td>
        </tr>
      </table>
-     
      
      <div style="height: 20px"></div>
 

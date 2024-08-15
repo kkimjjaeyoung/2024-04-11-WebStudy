@@ -56,8 +56,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE FROM board
 		WHERE no=#{no}
 	</delete>
-	<!-- 댓글 삭제 -->
 	
+	//댓글 삭제
+	<delete id="boardReplyDelete" parameterType="int">
+		DELETE FROM board_reply
+		WHERE bno=#{no}
+	</delete>
+	
+	//게시글 검색
 	<select id="boardFindData" resultType="BoardVO" parameterType="hashmap">
 		SELECT no,name,subject,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,hit
 		FROM board

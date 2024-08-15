@@ -14,7 +14,7 @@ public class BoardDAO {
 		ssf=CreateSqlSessionFactory.getSsf();	//
 	}
 	
-	//목록 리스트
+	//캠핑장 목록 리스트
 	public static List<BoardVO> board_CampList(Map map){
 		List<BoardVO> list=new ArrayList<BoardVO>();
 		SqlSession session=null;
@@ -42,7 +42,7 @@ public class BoardDAO {
 		return count;
 	}
 	
-	//새 글 작성
+	//새 글 작성(캠핑장)
 	public static void board_CampInsert(BoardVO vo) {
 		SqlSession session=null;
 		try {
@@ -203,4 +203,5 @@ public class BoardDAO {
 			  }
 		   return list;
 	   }
+	
 }
