@@ -81,7 +81,8 @@ $(function(){
       <tr>
        <th width=15% class="text-right">이름</th>
        <td width="85%">
-        <input type=text name=name size=20 class="input-sm" required value="${vo.name }">
+		<input type=text name=name size=20 class="input-sm" required value="${vo.name}">
+		<input type="hidden" name=no value="${vo.no }">
        </td>
       </tr>
       
@@ -102,7 +103,7 @@ $(function(){
       <tr>
        <th width=15% class="text-right">이미지</th>
        <td width="85%">
-        <input type=file name=upload size=30 class="input-sm" value="${vo.imgname }">
+        <input type="file" name=upload size=30 class="input-sm" value="${vo.imgname }">
        </td>
       </tr>
       

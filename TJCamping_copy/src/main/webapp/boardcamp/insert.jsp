@@ -85,8 +85,7 @@ a.pagetagcolor{color: yellow; background: ;}
       <tr>
         <td colspan="2" class="text-center inline">
          <input type=submit value="글쓰기" class="btn-sm btn-danger">
-         <input type=button value="취소" class="btn-sm btn-primary"
-          onclick="javascript:history.back()">
+         <input type=button value="취소" class="btn-sm btn-primary" onclick="javascript:history.back()">
         </td>
       </tr>
      </table> 

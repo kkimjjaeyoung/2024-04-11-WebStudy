@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sist.mapper.board-mapper">
+<mapper namespace="com.sist.mapper.databoard-mapper">
 	<!-- 캠핑후기 리스트 -->
 	<select id="board_CampList" parameterType="hashmap" resultType="BoardVO">
 		SELECT no,subject,name,TO_CHAR(regdate,'YYYY-MM-DD') as dbday, hit, type, num
@@ -10,7 +10,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM (SELECT /*+ INDEX_DESC(board pd_no_pk)*/no,subject,name,regdate, hit, type
 		FROM board))
 		WHERE (num BETWEEN #{start} AND #{end}) AND type=1
+
 	</select>
+	
 	<select id="board_campRowCount" resultType="int">
 		SELECT COUNT(*) FROM board WHERE type=1
 	</select>
@@ -36,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 수정하기 -->
-	<update id="boardUpdateData" parameterType="BoardVO">
+	<update id="board_CampUpdate" parameterType="BoardVO">
 		UPDATE board SET
 		name=#{name},subject=#{subject},content=#{content},	imgname=#{imgname},imgsize=#{imgsize}, type=1
 		WHERE no=#{no}
@@ -47,23 +49,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT pwd FROM board
 		WHERE no=#{no}
 	</select>
+	
 	<select id="boardImgInfoData" resultType="BoardVO" parameterType="int">
 		SELECT imgname,imgsize 
 		FROM board
 		WHERE no=#{no}
 	</select>
+	
+	
 	<delete id="boardDelete" parameterType="int">
 		DELETE FROM board
 		WHERE no=#{no}
 	</delete>
 	
-	//댓글 삭제
+	<!-- 댓글 삭제 -->
 	<delete id="boardReplyDelete" parameterType="int">
 		DELETE FROM board_reply
 		WHERE bno=#{no}
 	</delete>
 	
-	//게시글 검색
+	<!-- 게시글 검색 -->
 	<select id="boardFindData" resultType="BoardVO" parameterType="hashmap">
 		SELECT no,name,subject,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,hit
 		FROM board

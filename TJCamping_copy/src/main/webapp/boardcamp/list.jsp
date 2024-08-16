@@ -73,12 +73,16 @@ a.pagetagcolor{color: yellow; background: ;}
 				<c:set var="count" value="${count }"/>
 				<c:forEach var="vo" items="${list }">
 				<tr>
-					<td width=10% class="boardlistsytle">${count }</td>
+					<td width=10% class="boardlistsytle" >${count }
+					</td>
 					<td width=50% style="text-align: center;">
+						<c:if test="${15<vo.hit }">
+							<sup><img src="../img/" width="20px" height="20px" align="left"></sup>	<!-- 새 글 뒤에 이미지 아이콘 -->
+					 	</c:if>
 						<a class="boardlistsytle" href="../boardcamp/detail.do?no=${vo.no }">${vo.subject }</a>
 						&nbsp;
 						<c:if test="${today==vo.dbday }">
-							<sup><img src="../img/1.jpg" width="15px" height="15px"></sup>	<!-- 새 글 뒤에 이미지 아이콘 -->
+							<sup><img src="../img/new.gif" width="20px" height="20px"></sup>	<!-- 새 글 뒤에 이미지 아이콘 -->
 					 	</c:if>
 					</td>
 					<td width=15% class="text-center boardlistsytle" >${vo.name }</td>
@@ -91,11 +95,11 @@ a.pagetagcolor{color: yellow; background: ;}
 			<table class="table" style="text-align: center;">
 				<tr>	
 					<td class="text-right">
-						<a href="#" class="btn btn-sm btn-success pagetagcolor">이전</a>
+						<a href="list.do?page=${curpage>1?curpage-1:curpage }" class="btn btn-sm btn-success pagetagcolor">이전</a>
 						&nbsp;
 							<a class="boardlistsytle">${curpage } page &nbsp; / &nbsp; ${totalpage } pages</a><!-- 이전 현재쪽 / 총쪽 다음 -->
 						&nbsp;
-						<a href="#" class="btn btn-sm btn-info pagetagcolor">다음</a>
+						<a href="list.do?page=${curpage<totalpage?curpage+1:curpage }" class="btn btn-sm btn-info pagetagcolor">다음</a>
 					</td>
 				</tr>
 			</table>

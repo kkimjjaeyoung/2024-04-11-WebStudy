@@ -15,7 +15,7 @@ import com.sist.dao.*;
 
 
 public class BoardReplyModel {
-	  @RequestMapping("reply/reply_list.do")
+	  @RequestMapping("boardreply/boardreply_list.do")
 	  public void reply_list(HttpServletRequest request,HttpServletResponse response)
 	  {
 		  String bno=request.getParameter("bno");
@@ -25,7 +25,6 @@ public class BoardReplyModel {
 		  
 		  try
 		  {
-			  // list => JSON변경 
 			  JSONArray arr=new JSONArray();
 			  for(BoardReplyVO vo:list)
 			  {
@@ -46,8 +45,8 @@ public class BoardReplyModel {
 		  }catch(Exception ex) {}
 		  
 	  }
-	  @RequestMapping("reply/reply_insert.do")
-	  public void reply_insert(HttpServletRequest request,HttpServletResponse response)
+	  @RequestMapping("boardreply/boardreply_insert.do")
+	  public void replyInsert(HttpServletRequest request,HttpServletResponse response)
 	  {
 		  try
 		  {
@@ -73,7 +72,7 @@ public class BoardReplyModel {
 			  out.write("OK");
 		  }catch(Exception ex) {}
 	  }
-	  @RequestMapping("reply/reply_delete.do")
+	  @RequestMapping("boardreply/boardreply_delete.do")
 	  public void reply_delete(HttpServletRequest request,HttpServletResponse response)
 	  {
 		  String rno=request.getParameter("rno");
@@ -84,7 +83,7 @@ public class BoardReplyModel {
 			  out.write("OK");
 		  }catch(Exception ex) {}
 	  }
-	  @RequestMapping("reply/reply_update.do")
+	  @RequestMapping("boardreply/boardreply_update.do")
 	  public void reply_update(HttpServletRequest request,HttpServletResponse response)
 	  {
 		  try

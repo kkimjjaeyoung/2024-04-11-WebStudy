@@ -83,8 +83,7 @@ $(function(){
 		 })
 	 })
 
-	 
-	// 댓글 읽기
+	 // 댓글 읽기
 	 let bno=$('.del_no').text()
 	 replyList(bno)
 	 // 댓글 쓰기
@@ -101,7 +100,7 @@ $(function(){
 		 }
 		 $.ajax({
 			 type:'post',
-			 url:'../reply/reply_insert.do',
+			 url:'../boardreply/boardreply_insert.do',
 			 data:{"bno":bno,"msg":msg},
 			 success:function(result)
 			 {
@@ -118,10 +117,10 @@ $(function(){
 				 console.log(error)
 			 }
 		 })
-	 })
-	 // 댓글 수정 	 
-	 
+	 }) 
  })
+ 
+ // 댓글 수정 	
  let u=0;
  function replyUpdate(rno)
  {
@@ -132,7 +131,7 @@ $(function(){
  {
 	 $.ajax({
 		 type:'post',
-		 url:'../reply/reply_delete.do',
+		 url:'../boardreply/boardreply_delete.do',
 		 data:{"rno":rno},
 		 success:function(result)
 		 {
@@ -153,7 +152,7 @@ $(function(){
 	  //alert(rno+"."+msg)
 	  $.ajax({
 		  type:'post',
-		  url:'../reply/reply_update.do',
+		  url:'../boardreply/boardreply_update.do',
 		  data:{"rno":rno,"msg":msg},
 		  success:function(result)
 		  {
@@ -174,21 +173,21 @@ $(function(){
  {
 	 $.ajax({
 		 type:'post',
-		 url:'../reply/reply_list.do',
+		 url:'../boardreply/boardreply_list.do',
 		 data:{"bno":bno},
 		 success:function(json)
 		 {
-			 json=JSON.parse(json)
 			 let html=''
+			 json=JSON.parse(json)
+
 			 
 			 json.map(function(reply){
 				 //for(let reply of json){
 				 html+='<table class="table">'
 					 html+='<tr>'
-					 html+='<td class="text-left">◑'+reply.name+'('+reply.day+')</td>'
+					 html+='<td class="text-left">◑'+reply.name+'('+reply.day+	')</td>'
 					 html+='<td class="text-right">'
-				      if(reply.id===reply.sessionId)
-				      {
+				      if(reply.id===reply.sessionId){
 				    	  html+='<span class="btn btn-xs btn-success ups" onclick="replyUpdate('+reply.rno+')">수정</span>&nbsp;' 
 				    	  html+='<input type=button class="btn btn-xs btn-warning" value="삭제" onclick="replyDelete('+reply.rno+','+reply.bno+')">' 
 				      }
@@ -234,7 +233,7 @@ $(function(){
 			<div class="row1">
 	<!-- board css end -->
 	<!-- board start -->
-			<table class="table">
+	<table class="table">
        <tr>
         <th width=20% class="text-center boardtitlecolor">번호</th>
         <td width=30% class="text-center del_no boardtitlecolor">${vo.no }</td>
@@ -292,11 +291,11 @@ $(function(){
      <table class="table">
        <tr>
         <td>
-         <textarea rows="4" cols="100" id="msg" style="float: left"></textarea>
-         <input type=button value="댓글쓰기" style="width: 100px; height: 85px;background-color: green;color:black" id="writeBtn">
+         <textarea rows="3" cols="100" id="msg" style="float: left" placeholder="내용을 입력해 주십시오"></textarea>
+         <input type=button value="댓글 작성" style="width: 100px; height: 85px; color:black" id="writeBtn">
         </td>
        </tr>
-     </table>
+     </table>	
      </c:if>
      </div>
      </div>
