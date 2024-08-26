@@ -11,4 +11,11 @@
    SELECT * FROM member
    WHERE id=#{id}
  </select>
+ 
+ <!--  -->
+ <insert id="memberInsert" parameterType="MemberVo">
+ 	INSERT INTO member VALUES (
+ 		#{id}, #{pwd}, #{name}, #{sex}, #{birthday}, #{post}, #{addr1}, #{addr2}, #{phone}, #{email}, #{content}, SYSDATE, 'n'
+ 	)
+ </insert>
 </mapper>

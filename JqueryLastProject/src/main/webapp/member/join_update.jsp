@@ -35,6 +35,9 @@ $('#postBtn').click(function(){
 
 })
 </script>
+<style type="">
+	
+</style>
 </head>
 <body>
 <div class="wrapper row3">

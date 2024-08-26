@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper>
+	<!-- 목록 -->
+		<select id="replyBoardListData" resultType="ReplyBoardVO" parameterType="hashmap">
+			SELECT no, id, subject, name, TO_CHAR(regdate, 'YYYY-MM-DD') as dbday, hit, group_step, num
+			FROM (SELECT no, id, subject, name, regdate, hit, group_step, rownum as num)
+			FROM (SELECT no, id, subject, name, regdate, hit, group_setp)
+			FROM project_replyboard ORDER BY group_id DESC, group_step ASC))
+			WHERE num BETWEEN #{start} AND #{end}
+		</select>
+	<!-- 등록/답변 -->
+	<insert id="replyBoardInsert" parameterType="ReplyBoardVO">
+		INSERT INTO project_replyboard(no, id, name, subject, content, pwd, group_id)
+		VALUES(pr_no_seq.nextval, #{id}, #{name}, #{subject}, #{content}, #{pwd}, (SELECT NVL(MAX(group_id)+1, 1) FROM project_replyboard))
+	</insert>
+	<!-- 등록/답변 => 삭제 -->
+	
+</mapper>

@@ -48,4 +48,66 @@ public class MemberModel {
 		request.setAttribute("main_jsp", "../member/join.jsp");
 		return "../main/main.jsp";
 	}
+	
+	@RequestMapping("member/idcheck.do")
+	public String member_idcheck(HttpServletRequest request, HttpServletResponse response) {
+		
+		return "../member/idcheck.jsp";
+	}
+	
+	@RequestMapping("member/idcheck_ok")
+	public void member_idcheck_ok(HttpServletRequest request, HttpServletResponse response) {
+		String id=request.getParameter("id");
+		//DB연동
+		int count=MemberDAO.memberIdCheck(id);
+		//ajax로 값 전송
+		try {
+			PrintWriter out=response.getWriter();
+			out.write(String.valueOf(count));
+		} catch (Exception ex) {
+			// TODO: handle exception
+		}
+	}
+	
+	@RequestMapping("member/join_ok")
+	public String member_join_ok(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (Exception ex) {
+			// TODO: handle exception
+		}
+		String id=request.getParameter("id");
+		String pwd=request.getParameter("pwd");
+		String name=request.getParameter("name");
+		String sex=request.getParameter("sex");
+		String birthday=request.getParameter("birthday");
+		String post=request.getParameter("post");
+		String addr1=request.getParameter("addr1");
+		String addr2=request.getParameter("addr2");
+		String email=request.getParameter("email");
+		String content=request.getParameter("content");
+		String phone1=request.getParameter("phone1");
+		String phone2=request.getParameter("phone2");
+		
+		MemberVO vo=new MemberVO();
+		vo.setId(id);
+		vo.setPwd(pwd);
+		vo.setSex(sex);
+		vo.setEmail(email);
+		vo.setBirthday(birthday);
+		vo.setPost(post);
+		vo.setAddr1(addr1);
+		vo.setAddr2(addr2);
+		vo.setContent(content);
+		vo.setPhone(phone1+")"+phone2);
+		
+		return "redirect:../main/main.do";
+	}
+	
+	@RequestMapping("member/join_update.do")
+	public String mypage_join_update(HttpServletRequest request, HttpServletResponse response) {
+		request.setAttribute("mypage_jsp", "../member/join_update.jsp");
+		request.setAttribute("main_jsp", "../member/join_update.jsp");
+		return "../main/main.jsp";
+	}
 }

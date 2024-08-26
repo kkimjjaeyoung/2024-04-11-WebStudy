@@ -10,9 +10,9 @@ p
 </jsp:useBean>
 
 <%
-	DiaryService dao=DiaryService.newInstance();
+DiaryService dao=DiaryService.newInstance();
 	//update요청
-	dao.diary
+	com.sist.dao.diary
 	//화면이동
 	response.sendRedirect("diary.jsp");
 %>

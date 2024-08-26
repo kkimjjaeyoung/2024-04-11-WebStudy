@@ -123,15 +123,15 @@ $(function(){
           <li><a href="../food/list.do">맛집목록</a></li>
           <li><a href="../food/find.do">맛집찾기</a></li>
           <c:if test="${sessionScope.id!=null }">
-            <li><a href="pages/full-width.html">맛집예약</a></li>
+            <li><a href="../reserve/reserve_main.do">맛집예약</a></li>
           </c:if>
-          <li><a href="pages/sidebar-left.html">맛집추천</a></li>
+          <li><a href="../recommand/food_recommand.do">맛집추천</a></li>
         </ul>
       </li>
       <li><a class="drop" href="#">레시피</a>
         <ul>
-          <li><a href="pages/gallery.html">쉐프</a></li>
-          <li><a href="pages/full-width.html">레시피</a></li>
+          <li><a href="../recipe/chef_list.do">쉐프</a></li>
+          <li><a href="../recipe/recipe_list.do">레시피</a></li>
           <li><a href="pages/sidebar-left.html">레시피만들기</a></li>
         </ul>
       </li>

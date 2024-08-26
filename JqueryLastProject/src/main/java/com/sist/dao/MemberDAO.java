@@ -37,4 +37,31 @@ public class MemberDAO {
 		
 		return vo;
 	}
+	
+	//아이디 중복 체크
+	public static int memberIdCheck(String id) {
+		int count=0;
+		SqlSession session=null;
+		try {
+			session=ssf.openSession();
+			count=session.selectOne("memberIdCountData", id);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			if(session!=null) session.close();
+		}
+		return count;
+	}
+	
+	public static void memberInsert(MemberVO vo) {
+		SqlSession session=null;
+		try {
+			session=ssf.openSession();
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			if(session!=null) session.close();
+		}
+	}
 }
